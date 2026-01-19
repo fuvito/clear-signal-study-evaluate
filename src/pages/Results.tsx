@@ -146,9 +146,19 @@ export default function Results() {
                         <h1 className="text-3xl font-bold m-0 text-900">Exam Results</h1>
                         <p className="text-600 m-0">Review your performance and AI feedback</p>
                     </div>
-                    <Link to="/dashboard">
-                        <Button label="Back to Dashboard" icon="pi pi-arrow-left" text className="font-bold"/>
-                    </Link>
+                    <div className="flex gap-2">
+                         <Button 
+                            label="Re-Evaluate" 
+                            icon="pi pi-refresh" 
+                            severity="warning" 
+                            outlined 
+                            onClick={() => exam && gradeExam(exam)}
+                            disabled={isGrading}
+                        />
+                        <Link to="/dashboard">
+                            <Button label="Back to Dashboard" icon="pi pi-arrow-left" text className="font-bold"/>
+                        </Link>
+                    </div>
                 </div>
 
                 {isGrading && (
