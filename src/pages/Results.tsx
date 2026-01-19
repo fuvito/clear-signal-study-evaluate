@@ -7,6 +7,7 @@ import { ProgressBar } from 'primereact/progressbar'
 import { Accordion, AccordionTab } from 'primereact/accordion'
 import { Tag } from 'primereact/tag'
 import { Message } from 'primereact/message'
+import { Toast } from 'primereact/toast'
 import { evaluateAnswer, type EvaluationResult, type RubricDimensions } from '../services/aiService'
 
 interface AnswerRecord {
@@ -34,6 +35,7 @@ export default function Results() {
     const [gradingProgress, setGradingProgress] = useState(0)
     const [isGrading, setIsGrading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const toast = useRef<Toast>(null)
 
     const hasStartedGrading = useRef(false)
 
@@ -53,7 +55,7 @@ export default function Results() {
         }
     }, [examId])
 
-    const gradeExam = async (currentExam: ExamRecord) => {
+    const gradeExam = async (currentExam: ExamRecord, force: boolean = false) => {
         setIsGrading(true);
         setError(null);
         const gradedAnswers = [...currentExam.answers];
@@ -62,7 +64,7 @@ export default function Results() {
         try {
             for (let i = 0; i < gradedAnswers.length; i++) {
                 const answer = gradedAnswers[i];
-                if (!answer.evaluation) {
+                if (force || !answer.evaluation) {
                     // Call AI Service
                     const result = await evaluateAnswer(
                         answer.questionText,
@@ -95,10 +97,12 @@ export default function Results() {
             }
 
             setExam(updatedExam);
+            toast.current?.show({ severity: 'success', summary: 'Grading Complete', detail: 'Your exam has been successfully evaluated.', life: 3000 });
 
         } catch (err: unknown) {
             const errorMessage = err instanceof Error ? err.message : String(err);
             setError("Error during grading: " + errorMessage);
+            toast.current?.show({ severity: 'error', summary: 'Grading Failed', detail: errorMessage, life: 5000 });
         } finally {
             setIsGrading(false);
         }
@@ -140,6 +144,7 @@ export default function Results() {
 
     return (
         <div className="flex justify-content-center pb-8">
+            <Toast ref={toast} />
             <div className="w-full md:w-10 lg:w-8">
                 <div className="flex justify-content-between align-items-center mb-4">
                     <div>
@@ -152,7 +157,7 @@ export default function Results() {
                             icon="pi pi-refresh" 
                             severity="warning" 
                             outlined 
-                            onClick={() => exam && gradeExam(exam)}
+                            onClick={() => exam && gradeExam(exam, true)}
                             disabled={isGrading}
                         />
                         <Link to="/dashboard">
