@@ -8,7 +8,7 @@ import { Accordion, AccordionTab } from 'primereact/accordion'
 import { Tag } from 'primereact/tag'
 import { Message } from 'primereact/message'
 import { Toast } from 'primereact/toast'
-import { evaluateAnswer, type EvaluationResult, type RubricDimensions } from '../services/aiService'
+import { evaluateAnswer, getDetailedExplanation, type EvaluationResult, type RubricDimensions } from '../services/aiService'
 
 interface AnswerRecord {
     questionId: number;
@@ -17,6 +17,7 @@ interface AnswerRecord {
     correctAnswer: string;
     hintUsed: boolean;
     evaluation?: EvaluationResult;
+    detailedExplanation?: string;
 }
 
 interface ExamRecord {
@@ -35,6 +36,7 @@ export default function Results() {
     const [gradingProgress, setGradingProgress] = useState(0)
     const [isGrading, setIsGrading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [loadingExplanations, setLoadingExplanations] = useState<Record<number, boolean>>({})
     const toast = useRef<Toast>(null)
 
     const hasStartedGrading = useRef(false)
@@ -105,6 +107,38 @@ export default function Results() {
             toast.current?.show({ severity: 'error', summary: 'Grading Failed', detail: errorMessage, life: 5000 });
         } finally {
             setIsGrading(false);
+        }
+    };
+
+    const handleGetExplanation = async (index: number) => {
+        if (!exam) return;
+        const answer = exam.answers[index];
+        
+        setLoadingExplanations(prev => ({ ...prev, [index]: true }));
+        
+        try {
+            const explanation = await getDetailedExplanation(answer.questionText, answer.correctAnswer);
+            
+            const updatedAnswers = [...exam.answers];
+            updatedAnswers[index] = { ...answer, detailedExplanation: explanation };
+            
+            const updatedExam = { ...exam, answers: updatedAnswers };
+            setExam(updatedExam);
+            
+            // Persist
+            const history: ExamRecord[] = JSON.parse(localStorage.getItem('exam_history') || '[]');
+            const histIndex = history.findIndex((e) => e.id === exam.id);
+            if (histIndex !== -1) {
+                history[histIndex] = updatedExam;
+                localStorage.setItem('exam_history', JSON.stringify(history));
+            }
+            
+            toast.current?.show({ severity: 'success', summary: 'Explanation Generated', detail: 'Detailed explanation added.' });
+        } catch (err) {
+            console.error(err);
+            toast.current?.show({ severity: 'error', summary: 'Error', detail: 'Failed to generate explanation.' });
+        } finally {
+            setLoadingExplanations(prev => ({ ...prev, [index]: false }));
         }
     };
 
@@ -291,6 +325,24 @@ export default function Results() {
                                         <div className="surface-50 p-3 border-round text-900 line-height-3 border-left-3 border-indigo-500">
                                             {answer.evaluation.sampleAnswer || "No sample answer generated."}
                                         </div>
+                                    </AccordionTab>
+                                    <AccordionTab header={<span className="font-semibold text-purple-700">Deep Dive Explanation</span>}>
+                                        {answer.detailedExplanation ? (
+                                            <div className="surface-50 p-3 border-round text-900 line-height-3 border-left-3 border-purple-500" style={{ whiteSpace: 'pre-wrap' }}>
+                                                {answer.detailedExplanation}
+                                            </div>
+                                        ) : (
+                                            <div className="flex flex-column align-items-center py-4">
+                                                <p className="text-600 mb-3 text-center">Need more details? Ask AI to generate a comprehensive explanation for this concept.</p>
+                                                <Button 
+                                                    label="Generate Deep Dive" 
+                                                    icon="pi pi-sparkles" 
+                                                    severity="help" 
+                                                    onClick={() => handleGetExplanation(index)}
+                                                    loading={loadingExplanations[index]}
+                                                />
+                                            </div>
+                                        )}
                                     </AccordionTab>
                                 </Accordion>
                             )}
