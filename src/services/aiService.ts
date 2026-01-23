@@ -143,3 +143,35 @@ export const evaluateAnswer = async (
         };
     }
 };
+
+export const getDetailedExplanation = async (
+    question: string,
+    correctAnswer: string
+): Promise<string> => {
+    try {
+        const model = getModel();
+
+        const prompt = `
+        You are an expert technical tutor. Provide a comprehensive, detailed explanation for the following interview question.
+        
+        **Question:** ${question}
+        **Reference Answer Context:** ${correctAnswer}
+
+        **Instructions:**
+        1. Explain the core concepts in depth.
+        2. Provide code examples if applicable.
+        3. Discuss trade-offs, best practices, and common pitfalls.
+        4. The answer should be educational and thorough (approx 3-4 paragraphs).
+        5. Use clear Markdown formatting (headings, code blocks, bold text).
+        
+        Return ONLY the explanation text in Markdown.
+        `;
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        return response.text();
+    } catch (error) {
+        console.error("AI Detailed Explanation Failed:", error);
+        return "Failed to generate detailed explanation. Please try again.";
+    }
+};
