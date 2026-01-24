@@ -7,6 +7,7 @@ import jsQuestions from '../data/questions/javascript_exam_100_questions.json'
 import springQuestions from '../data/questions/spring_hibernate_exam_100_questions.json'
 import nodeQuestions from '../data/questions/nodejs_exam_100_questions.json'
 import systemDesignQuestions from '../data/questions/system_design_exam_100_questions.json'
+import restQuestions from '../data/questions/rest_exam_50_questions.json'
 
 // Map of subject codes to their data
 const subjectData: Record<string, Subject> = {
@@ -16,7 +17,8 @@ const subjectData: Record<string, Subject> = {
     'javascript': jsQuestions,
     'spring-hibernate': springQuestions,
     'nodejs': nodeQuestions,
-    'system-design': systemDesignQuestions
+    'system-design': systemDesignQuestions,
+    'rest-api': restQuestions
 }
 
 export type QuestionStrategy = 'random' | 'not_answered' | 'least_answered';
@@ -39,6 +41,7 @@ export const questionService = {
             { name: 'Spring & Hibernate', code: 'spring-hibernate', totalQuestions: springQuestions.totalQuestions },
             { name: 'Node.js', code: 'nodejs', totalQuestions: nodeQuestions.totalQuestions },
             { name: 'System Design', code: 'system-design', totalQuestions: systemDesignQuestions.totalQuestions },
+            { name: 'REST API', code: 'rest-api', totalQuestions: restQuestions.totalQuestions },
         ];
     },
 

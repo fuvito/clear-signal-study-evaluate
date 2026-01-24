@@ -1,0 +1,287 @@
+{
+    "subject": "REST API",
+    "version": "1.0",
+    "totalQuestions": 50,
+    "categories": [
+        {
+            "id": "core_principles",
+            "title": "Core Principles & Constraints",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "What is REST and who introduced it?",
+                    "answer": "REST stands for Representational State Transfer. It is an architectural style for distributed hypermedia systems, first introduced by Roy Fielding in his 2000 doctoral dissertation."
+                },
+                {
+                    "id": 2,
+                    "question": "List the six guiding constraints of REST.",
+                    "answer": "1. Client-Server\n2. Stateless\n3. Cacheable\n4. Uniform Interface\n5. Layered System\n6. Code on Demand (optional)"
+                },
+                {
+                    "id": 3,
+                    "question": "Explain the 'Stateless' constraint in REST.",
+                    "answer": "Stateless means that each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client."
+                },
+                {
+                    "id": 4,
+                    "question": "What is a 'Resource' in REST?",
+                    "answer": "A resource is the key abstraction of information in REST. It can be any entity (document, image, temporal service, collection of other resources) that can be named and addressed via a URI."
+                },
+                {
+                    "id": 5,
+                    "question": "What is the 'Uniform Interface' constraint?",
+                    "answer": "It simplifies and decouples the architecture, which enables each part to evolve independently. The four guiding principles are: Resource-Based, Manipulation of Resources Through Representations, Self-descriptive Messages, and HATEOAS."
+                },
+                {
+                    "id": 6,
+                    "question": "What is 'Layered System' in REST architecture?",
+                    "answer": "A client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way. Intermediary servers may improve system scalability by enabling load balancing and by providing shared caches."
+                },
+                {
+                    "id": 7,
+                    "question": "Explain 'Code on Demand'.",
+                    "answer": "Servers can temporarily extend or customize the functionality of a client by transferring executable code (e.g., scripts like JavaScript). This is the only optional constraint in REST."
+                },
+                {
+                    "id": 8,
+                    "question": "What is a 'Representation' of a resource?",
+                    "answer": "A representation is a snapshot of the resource state at a given time (e.g., JSON, XML, HTML). The client interacts with the resource state through these representations."
+                }
+            ]
+        },
+        {
+            "id": "http_methods",
+            "title": "HTTP Methods & Status Codes",
+            "questions": [
+                {
+                    "id": 9,
+                    "question": "What are the primary HTTP methods used in REST?",
+                    "answer": "GET (retrieve), POST (create), PUT (update/replace), PATCH (partial update), DELETE (remove), OPTIONS (capabilities), HEAD (headers only)."
+                },
+                {
+                    "id": 10,
+                    "question": "What is the difference between PUT and PATCH?",
+                    "answer": "PUT is used to replace a resource entirely (or create if not exists). PATCH is used to apply partial modifications to a resource."
+                },
+                {
+                    "id": 11,
+                    "question": "Explain the concept of Idempotency in HTTP methods.",
+                    "answer": "An idempotent method is one that can be called multiple times without changing the result beyond the initial application. GET, PUT, DELETE, HEAD, and OPTIONS are idempotent. POST is NOT idempotent."
+                },
+                {
+                    "id": 12,
+                    "question": "Is DELETE idempotent? Why?",
+                    "answer": "Yes. Calling DELETE on a resource once removes it. Calling it again returns 404 (or 200/204), but the state of the server remains the same (the resource is gone)."
+                },
+                {
+                    "id": 13,
+                    "question": "When should you use POST vs PUT?",
+                    "answer": "Use POST when you want the server to control the URL generation (creating a subordinate resource). Use PUT when the client specifies the exact URL of the resource to be created or updated."
+                },
+                {
+                    "id": 14,
+                    "question": "What does a 201 Created status code imply?",
+                    "answer": "The request has been fulfilled and has resulted in one or more new resources being created."
+                },
+                {
+                    "id": 15,
+                    "question": "What is the difference between 401 Unauthorized and 403 Forbidden?",
+                    "answer": "401 means 'Unauthenticated' (the user is not logged in or credentials are bad). 403 means 'Unauthorized' (the user is logged in but lacks permission to access the resource)."
+                },
+                {
+                    "id": 16,
+                    "question": "What does 204 No Content mean?",
+                    "answer": "The server successfully processed the request and is not returning any content. Commonly used for DELETE or PUT requests."
+                },
+                {
+                    "id": 17,
+                    "question": "What is the purpose of the OPTIONS method?",
+                    "answer": "It allows a client to request information about the communication options available for the target resource (e.g., checking CORS permissions)."
+                },
+                {
+                    "id": 18,
+                    "question": "What status code should be returned if a resource is not found?",
+                    "answer": "404 Not Found."
+                },
+                {
+                    "id": 19,
+                    "question": "What does 405 Method Not Allowed indicate?",
+                    "answer": "The request method is known by the server but is not supported by the target resource (e.g., trying to DELETE a resource that is read-only)."
+                },
+                {
+                    "id": 20,
+                    "question": "What is the meaning of 500 Internal Server Error?",
+                    "answer": "A generic error message, given when an unexpected condition was encountered and no more specific message is suitable."
+                }
+            ]
+        },
+        {
+            "id": "api_design",
+            "title": "API Design & Best Practices",
+            "questions": [
+                {
+                    "id": 21,
+                    "question": "What are best practices for naming REST resources?",
+                    "answer": "Use nouns, not verbs (e.g., /users, not /getUsers). Use plural nouns for collections. Use hyphens for readability. Use lowercase letters."
+                },
+                {
+                    "id": 22,
+                    "question": "How do you handle relationships in URLs?",
+                    "answer": "Use sub-resources for hierarchy. Example: GET /users/123/orders represents the orders belonging to user 123."
+                },
+                {
+                    "id": 23,
+                    "question": "What is HATEOAS?",
+                    "answer": "Hypermedia As The Engine Of Application State. It means a client interacts with a network application entirely through hypermedia provided dynamically by application servers (via links)."
+                },
+                {
+                    "id": 24,
+                    "question": "How should you handle API versioning?",
+                    "answer": "Common strategies include: URL versioning (/api/v1/users), Custom Header (Accept-Version: v1), or Media Type versioning (Accept: application/vnd.myapi.v1+json)."
+                },
+                {
+                    "id": 25,
+                    "question": "How do you implement pagination in a REST API?",
+                    "answer": "Use query parameters like ?page=2&limit=20 or ?offset=10&limit=10. The response should ideally include metadata about total records and links to next/prev pages."
+                },
+                {
+                    "id": 26,
+                    "question": "What is the difference between query parameters and path parameters?",
+                    "answer": "Path parameters identify a specific resource (e.g., /users/123). Query parameters filter, sort, or paginate the resource list (e.g., /users?role=admin)."
+                },
+                {
+                    "id": 27,
+                    "question": "How do you handle filtering and sorting in REST?",
+                    "answer": "Use query parameters. Example: ?sort=created_at&order=desc&status=active."
+                },
+                {
+                    "id": 28,
+                    "question": "What is the purpose of the 'Accept' header?",
+                    "answer": "It informs the server about the media types (MIME types) that the client is able to understand (e.g., application/json, application/xml)."
+                },
+                {
+                    "id": 29,
+                    "question": "What is the purpose of the 'Content-Type' header?",
+                    "answer": "It indicates the media type of the resource representation sent in the request body (client to server) or response body (server to client)."
+                },
+                {
+                    "id": 30,
+                    "question": "What is Richardson Maturity Model?",
+                    "answer": "A model that breaks down the principal elements of a REST approach into three steps: Level 0 (The Swamp of POX), Level 1 (Resources), Level 2 (HTTP Verbs), Level 3 (Hypermedia Controls/HATEOAS)."
+                }
+            ]
+        },
+        {
+            "id": "security_performance",
+            "title": "Security, Caching & Performance",
+            "questions": [
+                {
+                    "id": 31,
+                    "question": "What are common ways to secure a REST API?",
+                    "answer": "HTTPS (SSL/TLS), Authentication (Basic, OAuth2, JWT), Authorization (RBAC), Input Validation, Rate Limiting, CORS policies."
+                },
+                {
+                    "id": 32,
+                    "question": "What is the difference between Authentication and Authorization?",
+                    "answer": "Authentication validates identity (who you are). Authorization validates permissions (what you are allowed to do)."
+                },
+                {
+                    "id": 33,
+                    "question": "How does HTTP caching work?",
+                    "answer": "It relies on headers like Cache-Control, ETag, Last-Modified, and Expires to allow clients or intermediaries to reuse responses, reducing server load and latency."
+                },
+                {
+                    "id": 34,
+                    "question": "What is an ETag?",
+                    "answer": "An entity tag (ETag) is an identifier for a specific version of a resource. It allows for efficient cache validation and conditional requests (If-None-Match)."
+                },
+                {
+                    "id": 35,
+                    "question": "What is Rate Limiting?",
+                    "answer": "A technique used to control the amount of incoming and outgoing traffic to or from a network. It prevents abuse and ensures stability. Often returns 429 Too Many Requests."
+                },
+                {
+                    "id": 36,
+                    "question": "What is JWT?",
+                    "answer": "JSON Web Token is a compact, URL-safe means of representing claims to be transferred between two parties. It is commonly used for stateless authentication in REST APIs."
+                },
+                {
+                    "id": 37,
+                    "question": "What is CORS?",
+                    "answer": "Cross-Origin Resource Sharing is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin."
+                },
+                {
+                    "id": 38,
+                    "question": "What is the 'Cache-Control' header?",
+                    "answer": "It holds directives (instructions) for caching in both requests and responses (e.g., max-age=3600, public, no-cache)."
+                },
+                {
+                    "id": 39,
+                    "question": "Explain the concept of 'Safe' methods.",
+                    "answer": "Safe methods are HTTP methods that do not modify resources (read-only). GET, HEAD, and OPTIONS are considered safe."
+                },
+                {
+                    "id": 40,
+                    "question": "How do you prevent SQL Injection in REST APIs?",
+                    "answer": "By using parameterized queries or prepared statements, validating and sanitizing user input, and using ORMs that handle escaping automatically."
+                }
+            ]
+        },
+        {
+            "id": "advanced_scenarios",
+            "title": "Advanced Scenarios",
+            "questions": [
+                {
+                    "id": 41,
+                    "question": "How would you design an API for a file upload?",
+                    "answer": "Use POST or PUT with 'multipart/form-data' Content-Type, or allow direct binary upload. Return the URL of the uploaded resource in the response or Location header."
+                },
+                {
+                    "id": 42,
+                    "question": "What is Content Negotiation?",
+                    "answer": "The mechanism that is used for serving different representations of a resource at the same URI, so that the user agent can specify which is best suited for the user (using Accept, Accept-Language headers)."
+                },
+                {
+                    "id": 43,
+                    "question": "How do you handle long-running operations in REST?",
+                    "answer": "Return 202 Accepted immediately with a Location header pointing to a status endpoint where the client can poll for progress."
+                },
+                {
+                    "id": 44,
+                    "question": "What is a Payload?",
+                    "answer": "The data sent in the body of the HTTP request or response. It is the actual message content, distinct from headers."
+                },
+                {
+                    "id": 45,
+                    "question": "How do you deal with bulk updates in REST?",
+                    "answer": "You can design a specific endpoint (e.g., /users/batch) that accepts an array of objects, or use PATCH with a specific format defining the operations."
+                },
+                {
+                    "id": 46,
+                    "question": "What is the difference between SOAP and REST?",
+                    "answer": "SOAP is a protocol (strict, XML-based, heavy). REST is an architectural style (flexible, resource-based, usually JSON). REST uses standard HTTP methods; SOAP defines its own."
+                },
+                {
+                    "id": 47,
+                    "question": "Why is JSON preferred over XML in modern REST APIs?",
+                    "answer": "JSON is lightweight, easier to parse (especially in JavaScript), less verbose, and maps directly to data structures in most programming languages."
+                },
+                {
+                    "id": 48,
+                    "question": "What is API Throttling?",
+                    "answer": "Similar to rate limiting, throttling controls the rate of API requests to prevent server overload, often by queuing requests or rejecting them gracefully during high load."
+                },
+                {
+                    "id": 49,
+                    "question": "How do you handle error reporting in REST?",
+                    "answer": "Return appropriate HTTP status codes (4xx, 5xx) and a structured JSON body containing error code, message, and details to help the client debug."
+                },
+                {
+                    "id": 50,
+                    "question": "What are Webhooks?",
+                    "answer": "User-defined HTTP callbacks. A way for an app to provide other applications with real-time information by sending data to a URL when a specific event occurs, rather than the client polling for it."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,567 @@
+{
+  "subject": "System Design",
+  "version": "1.1",
+  "totalQuestions": 100,
+  "categories": [
+    {
+      "id": "core_concepts",
+      "title": "Core Concepts",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is Scalability?",
+          "answer": "Scalability is the capability of a system to handle a growing amount of work by adding resources to the system. It can be achieved vertically (Scale Up) by adding more power to an existing machine, or horizontally (Scale Out) by adding more machines to the network."
+        },
+        {
+          "id": 2,
+          "question": "What is Reliability in System Design?",
+          "answer": "Reliability refers to the probability that a system will fail to perform its intended function within a specified time period. A reliable system is fault-tolerant and continues to work correctly even when some components fail."
+        },
+        {
+          "id": 3,
+          "question": "What is Availability?",
+          "answer": "Availability is the time a system is operational and accessible to users, usually expressed as a percentage (e.g., 99.999%). It ensures that the system is up and running when users need it, even if some parts are down."
+        },
+        {
+          "id": 4,
+          "question": "What is Efficiency in System Design?",
+          "answer": "Efficiency measures how well a system performs its tasks using the fewest resources possible. It involves optimizing response time (latency) and throughput (capacity) to ensure cost-effectiveness and performance."
+        },
+        {
+          "id": 5,
+          "question": "What is Manageability?",
+          "answer": "Manageability refers to the ease of operating, maintaining, and updating a system. Good manageability allows engineers to easily detect failures, deploy updates, and understand system health through monitoring and logging."
+        },
+        {
+          "id": 6,
+          "question": "What is Latency?",
+          "answer": "Latency is the time delay between the initiation of a request and the receipt of the response. Low latency is critical for interactive applications, while high latency can lead to a poor user experience."
+        },
+        {
+          "id": 7,
+          "question": "What is Throughput?",
+          "answer": "Throughput is the number of actions or requests a system can handle per unit of time. High throughput systems are designed to process massive amounts of data or traffic efficiently."
+        },
+        {
+          "id": 8,
+          "question": "What is Vertical Scaling?",
+          "answer": "Vertical Scaling (scaling up) means adding more resources (CPU, RAM, Storage) to a single server. It is easier to implement but has a hardware limit and introduces a single point of failure."
+        },
+        {
+          "id": 9,
+          "question": "What is Horizontal Scaling?",
+          "answer": "Horizontal Scaling (scaling out) means adding more servers to the pool of resources. It offers better redundancy and theoretically infinite scaling but introduces complexity in data consistency and management."
+        },
+        {
+          "id": 10,
+          "question": "What is a Single Point of Failure (SPOF)?",
+          "answer": "A Single Point of Failure is a part of a system that, if it fails, will stop the entire system from working. Eliminating SPOFs via redundancy is key to high availability."
+        }
+      ]
+    },
+    {
+      "id": "load_balancing_caching",
+      "title": "Load Balancing & Caching",
+      "questions": [
+        {
+          "id": 11,
+          "question": "What is a Load Balancer?",
+          "answer": "A Load Balancer is a device or software that distributes network or application traffic across a cluster of servers. It improves responsiveness and availability by preventing any single server from becoming overloaded."
+        },
+        {
+          "id": 12,
+          "question": "What is Round Robin Load Balancing?",
+          "answer": "Round Robin is a simple load balancing algorithm that distributes client requests to servers in a sequential, rotating order. It is easy to implement but doesn't account for the current load or capacity of each server."
+        },
+        {
+          "id": 13,
+          "question": "What is Caching?",
+          "answer": "Caching is the process of storing copies of data in a temporary storage location (cache) so that future requests for that data can be served faster. It reduces database load and improves latency."
+        },
+        {
+          "id": 14,
+          "question": "What is a CDN (Content Delivery Network)?",
+          "answer": "A CDN is a geographically distributed network of proxy servers and their data centers. It delivers content (like images and videos) to users based on their geographic location, reducing latency and server load."
+        },
+        {
+          "id": 15,
+          "question": "What is Cache Eviction?",
+          "answer": "Cache Eviction is the process of removing items from the cache to make room for new data. Common policies include Least Recently Used (LRU), First In First Out (FIFO), and Least Frequently Used (LFU)."
+        },
+        {
+          "id": 16,
+          "question": "What is Least Recently Used (LRU)?",
+          "answer": "LRU is a cache eviction policy that removes the items that haven't been used for the longest period of time. It assumes that recently used data is more likely to be requested again soon."
+        },
+        {
+          "id": 17,
+          "question": "What is Cache Invalidation?",
+          "answer": "Cache Invalidation is the process of declaring cached data as invalid or stale so that the system fetches fresh data from the source. It is notoriously difficult to get right in distributed systems."
+        },
+        {
+          "id": 18,
+          "question": "What is a Reverse Proxy?",
+          "answer": "A Reverse Proxy is a server that sits between client devices and web servers. It forwards client requests to the appropriate server and can handle tasks like load balancing, SSL termination, and caching."
+        },
+        {
+          "id": 19,
+          "question": "What is Consistent Hashing?",
+          "answer": "Consistent Hashing is a technique used in distributed systems to distribute data across nodes in a way that minimizes reorganization when nodes are added or removed. It is commonly used in load balancers and distributed caches."
+        },
+        {
+          "id": 20,
+          "question": "What is a Sticky Session?",
+          "answer": "Sticky Session (Session Affinity) is a load balancer feature that routes all requests from a specific user to the same server during a session. This is useful for applications that store session data locally on the server."
+        }
+      ]
+    },
+    {
+      "id": "databases_storage",
+      "title": "Databases & Storage",
+      "questions": [
+        {
+          "id": 21,
+          "question": "What is Database Sharding?",
+          "answer": "Sharding is a method of splitting a single logical database into multiple smaller parts (shards) stored on different servers. This allows the database to scale horizontally beyond the limits of a single machine."
+        },
+        {
+          "id": 22,
+          "question": "What is Replication?",
+          "answer": "Replication is the process of copying data from one database server to one or more others. It ensures data redundancy, increases availability, and allows read-heavy workloads to be distributed across replicas."
+        },
+        {
+          "id": 23,
+          "question": "What is the CAP Theorem?",
+          "answer": "The CAP Theorem states that a distributed system can only provide two of the following three guarantees at the same time: Consistency (all nodes see same data), Availability (every request gets a response), and Partition Tolerance (system works despite network failures)."
+        },
+        {
+          "id": 24,
+          "question": "What is ACID?",
+          "answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. These are properties of database transactions that guarantee validity even in the event of errors or power failures, typical of SQL databases."
+        },
+        {
+          "id": 25,
+          "question": "What is BASE?",
+          "answer": "BASE stands for Basically Available, Soft state, and Eventual consistency. It is a philosophy for NoSQL databases that prioritizes availability over immediate consistency, opposite to the strict ACID model."
+        },
+        {
+          "id": 26,
+          "question": "SQL vs NoSQL?",
+          "answer": "SQL databases are relational, table-based, and enforce schemas (e.g., MySQL). NoSQL databases are non-relational, flexible (document, key-value), and scale horizontally more easily (e.g., MongoDB, Cassandra)."
+        },
+        {
+          "id": 27,
+          "question": "What is Database Normalization?",
+          "answer": "Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing large tables into smaller, related tables."
+        },
+        {
+          "id": 28,
+          "question": "What is Denormalization?",
+          "answer": "Denormalization is the process of adding redundant data to a normalized database to speed up complex queries. It trades write performance and storage space for faster read performance."
+        },
+        {
+          "id": 29,
+          "question": "What is an Index?",
+          "answer": "An Index is a data structure that improves the speed of data retrieval operations on a database table. While it speeds up reads, it slows down writes because the index must be updated."
+        },
+        {
+          "id": 30,
+          "question": "What is Eventual Consistency?",
+          "answer": "Eventual Consistency is a consistency model used in distributed systems where, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value."
+        }
+      ]
+    },
+    {
+      "id": "communication_messaging",
+      "title": "Communication & Messaging",
+      "questions": [
+        {
+          "id": 31,
+          "question": "What is HTTP?",
+          "answer": "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the World Wide Web. It is a stateless, request-response protocol used for fetching resources like HTML documents."
+        },
+        {
+          "id": 32,
+          "question": "REST vs GraphQL?",
+          "answer": "REST is an architectural style using standard HTTP methods and multiple endpoints. GraphQL is a query language allowing clients to request exactly the data they need from a single endpoint, reducing over-fetching."
+        },
+        {
+          "id": 33,
+          "question": "What is Polling?",
+          "answer": "Polling is a technique where the client repeatedly requests data from the server at regular intervals to check for updates. It is simple but can be inefficient if updates are infrequent."
+        },
+        {
+          "id": 34,
+          "question": "What is Long Polling?",
+          "answer": "Long Polling is a variation of polling where the server holds the client's request open until new data is available or a timeout occurs. This reduces the number of empty responses compared to standard polling."
+        },
+        {
+          "id": 35,
+          "question": "What are WebSockets?",
+          "answer": "WebSockets provide a full-duplex communication channel over a single TCP connection. They allow for real-time, two-way interaction between the client and server, ideal for chat apps and live feeds."
+        },
+        {
+          "id": 36,
+          "question": "What is a Message Queue?",
+          "answer": "A Message Queue is a form of asynchronous service-to-service communication used in serverless and microservices architectures. Messages are stored in a queue until they are processed and deleted by a consumer."
+        },
+        {
+          "id": 37,
+          "question": "What is Pub/Sub?",
+          "answer": "Publish/Subscribe is a messaging pattern where senders (publishers) do not send messages directly to specific receivers (subscribers). Instead, messages are published to topics, and subscribers receive only messages from topics they subscribe to."
+        },
+        {
+          "id": 38,
+          "question": "What is RPC?",
+          "answer": "RPC (Remote Procedure Call) is a protocol that allows a program to execute a procedure or function on another computer as if it were a local call, abstracting the network details."
+        },
+        {
+          "id": 39,
+          "question": "What is gRPC?",
+          "answer": "gRPC is a high-performance, open-source RPC framework developed by Google. It uses Protocol Buffers (Protobuf) for serialization and runs on HTTP/2, offering lower latency than JSON/REST."
+        },
+        {
+          "id": 40,
+          "question": "What is a Microservices Architecture?",
+          "answer": "Microservices is an architectural style where an application is structured as a collection of small, loosely coupled, and independently deployable services, usually organized around business capabilities."
+        }
+      ]
+    },
+    {
+      "id": "advanced_topics",
+      "title": "Advanced Topics",
+      "questions": [
+        {
+          "id": 41,
+          "question": "What is Rate Limiting?",
+          "answer": "Rate Limiting is a strategy for limiting the network traffic. It sets a cap on how many requests a sender can make in a specific timeframe, protecting servers from being overwhelmed (e.g., DoS attacks)."
+        },
+        {
+          "id": 42,
+          "question": "What is a Circuit Breaker?",
+          "answer": "A Circuit Breaker is a design pattern used to detect failures and encapsulate the logic of preventing a failure from constantly recurring. If a service fails often, the circuit 'trips' and immediately returns an error without calling the service."
+        },
+        {
+          "id": 43,
+          "question": "What is Idempotency?",
+          "answer": "Idempotency is a property where an operation can be applied multiple times without changing the result beyond the initial application. This is crucial in payment systems and reliable messaging to handle retries safely."
+        },
+        {
+          "id": 44,
+          "question": "What is Data Partitioning?",
+          "answer": "Data Partitioning is the technique of distributing data across multiple tables or databases. It helps in manageability, performance, and availability by reducing the size of individual data stores."
+        },
+        {
+          "id": 45,
+          "question": "What is Bloom Filter?",
+          "answer": "A Bloom Filter is a space-efficient probabilistic data structure used to test whether an element is a member of a set. It may return false positives but never false negatives, often used to avoid expensive disk lookups."
+        },
+        {
+          "id": 46,
+          "question": "What is Checksum?",
+          "answer": "A Checksum is a small-sized datum derived from a block of digital data for the purpose of detecting errors that may have been introduced during its transmission or storage."
+        },
+        {
+          "id": 47,
+          "question": "What is Heartbeat in systems?",
+          "answer": "A Heartbeat is a periodic signal generated by hardware or software to indicate normal operation or to synchronize with other parts of a system. It is commonly used to monitor server health."
+        },
+        {
+          "id": 48,
+          "question": "What is Leader Election?",
+          "answer": "Leader Election is the process of designating a single process as the organizer of some task distributed among several computers (nodes). This ensures coordination and consistency in distributed systems."
+        },
+        {
+          "id": 49,
+          "question": "What is Throttling?",
+          "answer": "Throttling is the intentional slowing down of a service to regulate network traffic and minimize bandwidth congestion. Unlike rate limiting which rejects requests, throttling may queue or delay them."
+        },
+        {
+          "id": 50,
+          "question": "What is Backpressure?",
+          "answer": "Backpressure is a mechanism where a downstream system signals an upstream system to slow down its data transmission rate. It prevents the receiver from being overwhelmed by data it cannot process fast enough."
+        }
+      ]
+    },
+    {
+      "id": "security_authentication",
+      "title": "Security & Authentication",
+      "questions": [
+        {
+          "id": 51,
+          "question": "What is OAuth 2.0?",
+          "answer": "OAuth 2.0 is an authorization framework that enables applications to obtain limited access to user accounts on an HTTP service, such as Facebook or Google. It delegates user authentication to the service that hosts the user account."
+        },
+        {
+          "id": 52,
+          "question": "What is JWT (JSON Web Token)?",
+          "answer": "JWT is an open standard for securely transmitting information between parties as a JSON object. It is compact, URL-safe, and often used for stateless authentication and information exchange."
+        },
+        {
+          "id": 53,
+          "question": "Authentication vs Authorization?",
+          "answer": "Authentication validates *who* a user is (e.g., logging in with a password), while Authorization determines *what* resources or actions that authenticated user is allowed to access (e.g., admin privileges)."
+        },
+        {
+          "id": 54,
+          "question": "What is HTTPS/SSL/TLS?",
+          "answer": "HTTPS (Hypertext Transfer Protocol Secure) uses SSL/TLS (Transport Layer Security) to encrypt communications between a client and a server, ensuring data privacy and integrity over the network."
+        },
+        {
+          "id": 55,
+          "question": "How should passwords be stored?",
+          "answer": "Passwords should never be stored in plain text. They should be hashed using a strong cryptographic algorithm (like bcrypt or Argon2) and 'salted' (adding random data) to protect against rainbow table attacks."
+        },
+        {
+          "id": 56,
+          "question": "What is SQL Injection?",
+          "answer": "SQL Injection is a code injection technique where an attacker executes malicious SQL statements that control a web application's database server. Prevention involves using prepared statements (parameterized queries) instead of string concatenation."
+        },
+        {
+          "id": 57,
+          "question": "What is Cross-Site Scripting (XSS)?",
+          "answer": "XSS is a vulnerability where attackers inject malicious scripts into trusted websites. These scripts execute in the victim's browser, potentially stealing cookies or session tokens. Prevention includes sanitizing inputs and using Content Security Policy (CSP)."
+        },
+        {
+          "id": 58,
+          "question": "What is CSRF (Cross-Site Request Forgery)?",
+          "answer": "CSRF is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. Prevention typically involves using anti-CSRF tokens that verify the request source."
+        },
+        {
+          "id": 59,
+          "question": "What is PKI (Public Key Infrastructure)?",
+          "answer": "PKI is a set of roles, policies, hardware, software, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption."
+        },
+        {
+          "id": 60,
+          "question": "What is Mutual TLS (mTLS)?",
+          "answer": "mTLS is a method for mutual authentication where both the client and the server authenticate each other using digital certificates. It is commonly used in microservices (via Service Mesh) to secure service-to-service communication."
+        }
+      ]
+    },
+    {
+      "id": "observability_reliability",
+      "title": "Observability & Reliability",
+      "questions": [
+        {
+          "id": 61,
+          "question": "What is Observability?",
+          "answer": "Observability is the measure of how well internal states of a system can be inferred from knowledge of its external outputs. It typically comprises three pillars: logs, metrics, and traces."
+        },
+        {
+          "id": 62,
+          "question": "Logging vs Monitoring?",
+          "answer": "Logging records discrete events (errors, info messages) for debugging. Monitoring aggregates data over time (CPU usage, request rate) to track system health and performance trends."
+        },
+        {
+          "id": 63,
+          "question": "What is Distributed Tracing?",
+          "answer": "Distributed Tracing is a method used to profile and monitor applications, especially those built using a microservices architecture. It helps pinpoint where failures occur and what causes poor performance across multiple services."
+        },
+        {
+          "id": 64,
+          "question": "What are Metrics?",
+          "answer": "Metrics are numerical measurements recorded over time. Common types include Counters (cumulative total), Gauges (current value), and Histograms (distribution of values like request duration)."
+        },
+        {
+          "id": 65,
+          "question": "What is an SLA (Service Level Agreement)?",
+          "answer": "An SLA is a contract between a service provider and a customer that specifies the expected level of service (e.g., 99.9% uptime) and the penalties if those levels are not met."
+        },
+        {
+          "id": 66,
+          "question": "What is an SLO (Service Level Objective)?",
+          "answer": "An SLO is a specific target level for the reliability of a service, agreed upon within the organization. It is the goal the engineering team strives to meet (e.g., '99.9% of requests succeed')."
+        },
+        {
+          "id": 67,
+          "question": "What is an SLI (Service Level Indicator)?",
+          "answer": "An SLI is a quantitative measure of some aspect of the level of service that is provided (e.g., the actual measured latency or error rate). It is the real-world number compared against the SLO."
+        },
+        {
+          "id": 68,
+          "question": "What is Alert Fatigue?",
+          "answer": "Alert Fatigue occurs when administrators are exposed to a large number of frequent alarms (often false positives or non-actionable), leading them to become desensitized and potentially ignore critical alerts."
+        },
+        {
+          "id": 69,
+          "question": "What is Synthetic Monitoring?",
+          "answer": "Synthetic Monitoring involves using scripts to simulate user behavior and interactions with an application to identify issues before they affect real users. It helps in checking uptime and performance from different locations."
+        },
+        {
+          "id": 70,
+          "question": "What is Log Aggregation?",
+          "answer": "Log Aggregation is the practice of collecting logs from multiple services and servers into a central location (like ELK Stack or Splunk) for easier searching, analysis, and visualization."
+        }
+      ]
+    },
+    {
+      "id": "distributed_patterns",
+      "title": "Distributed Patterns",
+      "questions": [
+        {
+          "id": 71,
+          "question": "What is the Saga Pattern?",
+          "answer": "The Saga Pattern is a failure management pattern for distributed transactions. It breaks a transaction into a sequence of local transactions, where each updates data within a single service. If one fails, compensating transactions are executed to undo the changes."
+        },
+        {
+          "id": 72,
+          "question": "What is the Sidecar Pattern?",
+          "answer": "The Sidecar Pattern involves deploying a helper component (sidecar) alongside the main application container. The sidecar handles infrastructure tasks like logging, proxying, or configuration, decoupling them from the main app logic."
+        },
+        {
+          "id": 73,
+          "question": "What is the Bulkhead Pattern?",
+          "answer": "The Bulkhead Pattern isolates elements of an application into pools so that if one fails, the others continue to function. It prevents a failure in one part of the system (e.g., a slow database) from exhausting resources for the entire system."
+        },
+        {
+          "id": 74,
+          "question": "What is CQRS?",
+          "answer": "CQRS (Command Query Responsibility Segregation) separates read and write operations for a data store. This allows independent scaling and optimization of read and write workloads, often using different models for each."
+        },
+        {
+          "id": 75,
+          "question": "What is Event Sourcing?",
+          "answer": "Event Sourcing is a pattern where state changes are stored as a sequence of events. To get the current state, the system replays the events. This provides a complete audit trail and enables point-in-time recovery."
+        },
+        {
+          "id": 76,
+          "question": "What is the Strangler Fig Pattern?",
+          "answer": "The Strangler Fig Pattern is a migration strategy for modernizing legacy systems. It involves gradually replacing specific functionalities of the legacy system with new microservices until the old system can be decommissioned."
+        },
+        {
+          "id": 77,
+          "question": "What is Two-Phase Commit (2PC)?",
+          "answer": "2PC is a standardized protocol for coordinating distributed transactions. It involves a Prepare phase (where all nodes agree to commit) and a Commit phase. It ensures strong consistency but is blocking and not scalable."
+        },
+        {
+          "id": 78,
+          "question": "What is the Ambassador Pattern?",
+          "answer": "The Ambassador Pattern creates a helper service that sends network requests on behalf of a client application or service. It handles cross-cutting concerns like retries, monitoring, and security."
+        },
+        {
+          "id": 79,
+          "question": "What is the Adapter Pattern in Microservices?",
+          "answer": "In microservices, an Adapter (or Wrapper) is used to translate the interface of an external service or legacy system into a format that the modern application expects, facilitating interoperability."
+        },
+        {
+          "id": 80,
+          "question": "What is Retry with Exponential Backoff?",
+          "answer": "Exponential Backoff is a retry strategy where the waiting time between retries increases exponentially (e.g., 1s, 2s, 4s, 8s). This prevents overwhelming a failing service with a storm of retry requests."
+        }
+      ]
+    },
+    {
+      "id": "api_gateway_networking",
+      "title": "API & Networking",
+      "questions": [
+        {
+          "id": 81,
+          "question": "What is an API Gateway?",
+          "answer": "An API Gateway is a server that acts as a single entry point for a system. It routes requests to appropriate microservices and handles cross-cutting concerns like authentication, rate limiting, and SSL termination."
+        },
+        {
+          "id": 82,
+          "question": "TCP vs UDP?",
+          "answer": "TCP is connection-oriented and guarantees delivery and order (used for Web, Email). UDP is connectionless and does not guarantee delivery (fire-and-forget), making it faster but less reliable (used for Streaming, Gaming)."
+        },
+        {
+          "id": 83,
+          "question": "What is DNS?",
+          "answer": "DNS (Domain Name System) is the phonebook of the internet. It translates human-readable domain names (like google.com) into IP addresses (like 142.250.190.46) that computers use to identify each other."
+        },
+        {
+          "id": 84,
+          "question": "What is HTTP/2?",
+          "answer": "HTTP/2 is a major revision of the HTTP network protocol. It improves performance by using a binary format, header compression, and multiplexing (sending multiple requests over a single TCP connection)."
+        },
+        {
+          "id": 85,
+          "question": "What are Server-Sent Events (SSE)?",
+          "answer": "SSE is a standard allowing servers to push real-time updates to web clients over a single HTTP connection. Unlike WebSockets, it is unidirectional (server-to-client) and simpler to implement for things like news feeds."
+        },
+        {
+          "id": 86,
+          "question": "Pagination: Offset vs Cursor?",
+          "answer": "Offset pagination (LIMIT/OFFSET) is simple but slow for large datasets and brittle to data changes. Cursor pagination (seeking via a unique ID) is more performant and consistent but harder to implement for arbitrary jumps."
+        },
+        {
+          "id": 87,
+          "question": "What is API Versioning?",
+          "answer": "API Versioning is the practice of managing changes to an API. Common strategies include URL versioning (/v1/users), Header versioning (Accept-Version: v1), and Query Parameter versioning (?version=1)."
+        },
+        {
+          "id": 88,
+          "question": "What is a Service Mesh?",
+          "answer": "A Service Mesh is a dedicated infrastructure layer for facilitating service-to-service communications. It controls how different parts of an application share data with one another, handling discovery, routing, and security (e.g., Istio, Linkerd)."
+        },
+        {
+          "id": 89,
+          "question": "What is CORS?",
+          "answer": "CORS (Cross-Origin Resource Sharing) is a security mechanism that allows a web page from one domain to request resources from another domain. Servers typically block cross-origin requests unless headers explicitly allow them."
+        },
+        {
+          "id": 90,
+          "question": "What is GraphQL Federation?",
+          "answer": "GraphQL Federation is an architecture where multiple GraphQL services (subgraphs) are composed into a single unified API (supergraph). It allows teams to work independently on different parts of the graph."
+        }
+      ]
+    },
+    {
+      "id": "data_processing_architecture",
+      "title": "Data Processing & Architecture",
+      "questions": [
+        {
+          "id": 91,
+          "question": "Batch Processing vs Stream Processing?",
+          "answer": "Batch Processing involves processing large blocks of data at scheduled intervals (high latency, high throughput). Stream Processing involves processing data in real-time as it arrives (low latency)."
+        },
+        {
+          "id": 92,
+          "question": "What is ETL?",
+          "answer": "ETL stands for Extract, Transform, Load. It is a data integration process that combines data from multiple sources (Extract), cleans/formats it (Transform), and stores it in a target system like a Data Warehouse (Load)."
+        },
+        {
+          "id": 93,
+          "question": "What is MapReduce?",
+          "answer": "MapReduce is a programming model for processing large data sets with a distributed algorithm on a cluster. It involves a Map step (filtering/sorting) and a Reduce step (summary operation)."
+        },
+        {
+          "id": 94,
+          "question": "What is Lambda Architecture?",
+          "answer": "Lambda Architecture is a data-processing architecture designed to handle massive quantities of data by taking advantage of both batch and stream-processing methods. It uses a Batch Layer (for accuracy) and a Speed Layer (for real-time)."
+        },
+        {
+          "id": 95,
+          "question": "What is Kappa Architecture?",
+          "answer": "Kappa Architecture is a simplification of Lambda Architecture. It removes the Batch Layer and treats everything as a stream. All data processing is performed by the stream processing system."
+        },
+        {
+          "id": 96,
+          "question": "What is a Data Lake?",
+          "answer": "A Data Lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. Unlike a Data Warehouse, it does not require a predefined schema before storage."
+        },
+        {
+          "id": 97,
+          "question": "What is a Data Warehouse?",
+          "answer": "A Data Warehouse is a system used for reporting and data analysis. It stores structured data from multiple sources and is optimized for complex queries (OLAP) rather than transaction processing (OLTP)."
+        },
+        {
+          "id": 98,
+          "question": "What is CDC (Change Data Capture)?",
+          "answer": "CDC is a set of software design patterns used to determine and track the data that has changed so that action can be taken using the changed data (e.g., syncing a cache or search index with a database)."
+        },
+        {
+          "id": 99,
+          "question": "What is HyperLogLog?",
+          "answer": "HyperLogLog is a probabilistic data structure used for estimating the cardinality (number of unique elements) of a set. It uses very little memory compared to a HashSet, at the cost of a small margin of error."
+        },
+        {
+          "id": 100,
+          "question": "What is Peer-to-Peer (P2P) Architecture?",
+          "answer": "P2P is a distributed architecture where tasks or workloads are partitioned between peers. Peers are equally privileged participants in the application, forming a self-organizing network without a central server."
+        }
+      ]
+    }
+  ]
+}
