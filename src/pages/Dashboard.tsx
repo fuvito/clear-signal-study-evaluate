@@ -41,7 +41,7 @@ export default function Dashboard() {
             </div>
 
             <div className="grid">
-                <div className="col-12 lg:col-6">
+                <div className="col-12 lg:col-4">
                     <Card className="shadow-2 border-round-xl h-full">
                         <div className="flex align-items-center mb-4">
                             <span className="flex align-items-center justify-content-center bg-indigo-100 text-indigo-500 border-round-lg mr-3" style={{ width: '3rem', height: '3rem' }}>
@@ -116,17 +116,32 @@ export default function Dashboard() {
                     </Card>
                 </div>
 
-                <div className="col-12 lg:col-6">
+                <div className="col-12 lg:col-4">
                     <Card className="shadow-2 border-round-xl h-full bg-indigo-50 border-none">
                         <div className="flex flex-column h-full justify-content-center align-items-center text-center p-4">
                              <span className="flex align-items-center justify-content-center bg-white text-indigo-500 border-circle mb-4 shadow-1" style={{ width: '4rem', height: '4rem' }}>
-                                <i className="pi pi-chart-line text-2xl"></i>
+                                <i className="pi pi-history text-2xl"></i>
                             </span>
-                            <h2 className="text-2xl font-bold text-900 mb-2">Your Progress</h2>
-                            <p className="text-600 line-height-3 mb-4 max-w-20rem">
-                                Track your performance and identify areas for improvement across different subjects.
+                            <h2 className="text-2xl font-bold text-900 mb-2">History</h2>
+                            <p className="text-600 line-height-3 mb-4">
+                                View your past exam attempts and check your scores.
                             </p>
                             <Button label="View History" outlined className="font-bold" onClick={() => navigate('/history')} />
+                        </div>
+                    </Card>
+                </div>
+
+                <div className="col-12 lg:col-4">
+                    <Card className="shadow-2 border-round-xl h-full bg-teal-50 border-none">
+                        <div className="flex flex-column h-full justify-content-center align-items-center text-center p-4">
+                             <span className="flex align-items-center justify-content-center bg-white text-teal-500 border-circle mb-4 shadow-1" style={{ width: '4rem', height: '4rem' }}>
+                                <i className="pi pi-chart-bar text-2xl"></i>
+                            </span>
+                            <h2 className="text-2xl font-bold text-900 mb-2">Report Card</h2>
+                            <p className="text-600 line-height-3 mb-4">
+                                Analyze your coverage and performance stats per subject.
+                            </p>
+                            <Button label="View Report Card" outlined className="font-bold p-button-success" onClick={() => navigate('/report-card')} />
                         </div>
                     </Card>
                 </div>
