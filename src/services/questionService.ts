@@ -9,6 +9,8 @@ import springQuestions from '../data/questions/spring_hibernate_exam_100_questio
 import nodeQuestions from '../data/questions/nodejs_exam_100_questions.json'
 import systemDesignQuestions from '../data/questions/system_design_exam_100_questions.json'
 import restQuestions from '../data/questions/rest_exam_50_questions.json'
+import architectQuestions from '../data/questions/software_architect_exam_100_questions.json'
+import angularQuestions from '../data/questions/angular_exam_100_questions.json'
 
 // Map of subject codes to their data
 const subjectData: Record<string, Subject> = {
@@ -19,7 +21,9 @@ const subjectData: Record<string, Subject> = {
     'spring-hibernate': springQuestions,
     'nodejs': nodeQuestions,
     'system-design': systemDesignQuestions,
-    'rest-api': restQuestions
+    'rest-api': restQuestions,
+    'software-architect': architectQuestions,
+    'angular': angularQuestions
 }
 
 export type QuestionStrategy = 'random' | 'not_answered' | 'least_answered';
@@ -36,6 +40,7 @@ export const questionService = {
     getSubjects(): { code: string; name: string; totalQuestions: number }[] {
         return [
             { name: 'React', code: 'react', totalQuestions: reactQuestions.totalQuestions },
+            { name: 'Angular', code: 'angular', totalQuestions: angularQuestions.totalQuestions },
             { name: 'Java', code: 'java', totalQuestions: javaQuestions.totalQuestions },
             { name: 'TypeScript', code: 'typescript', totalQuestions: tsQuestions.totalQuestions },
             { name: 'JavaScript', code: 'javascript', totalQuestions: jsQuestions.totalQuestions },
@@ -43,6 +48,7 @@ export const questionService = {
             { name: 'Node.js', code: 'nodejs', totalQuestions: nodeQuestions.totalQuestions },
             { name: 'System Design', code: 'system-design', totalQuestions: systemDesignQuestions.totalQuestions },
             { name: 'REST API', code: 'rest-api', totalQuestions: restQuestions.totalQuestions },
+            { name: 'Software Architect', code: 'software-architect', totalQuestions: architectQuestions.totalQuestions },
         ];
     },
 

@@ -1,0 +1,567 @@
+{
+    "subject": "Software Architect",
+    "version": "1.0",
+    "totalQuestions": 100,
+    "categories": [
+        {
+            "id": "system_design_principles",
+            "title": "System Design Principles",
+            "questions": [
+                {
+                    "id": 1,
+                    "question": "What is the CAP Theorem?",
+                    "answer": "The CAP theorem states that a distributed data store can only provide two of the following three guarantees: Consistency (every read receives the most recent write or an error), Availability (every request receives a (non-error) response, without the guarantee that it contains the most recent write), and Partition Tolerance (the system continues to operate despite an arbitrary number of messages being dropped or delayed by the network)."
+                },
+                {
+                    "id": 2,
+                    "question": "Explain the difference between vertical scaling and horizontal scaling.",
+                    "answer": "Vertical scaling (scaling up) means adding more power (CPU, RAM) to an existing machine. Horizontal scaling (scaling out) means adding more machines to a pool of resources. Horizontal scaling is generally more preferred for distributed systems as it offers better redundancy and theoretically infinite scaling."
+                },
+                {
+                    "id": 3,
+                    "question": "What is Loose Coupling?",
+                    "answer": "Loose coupling is a design goal where components of a system have little or no knowledge of the definitions of other separate components. It reduces dependencies, making the system easier to modify, test, and maintain."
+                },
+                {
+                    "id": 4,
+                    "question": "Define 'High Cohesion'.",
+                    "answer": "High cohesion refers to the degree to which the elements inside a module belong together. A highly cohesive module performs a specific task or a set of related tasks, making the code more understandable and maintainable."
+                },
+                {
+                    "id": 5,
+                    "question": "What is the Single Responsibility Principle (SRP)?",
+                    "answer": "SRP states that a class or module should have one, and only one, reason to change. It implies that a class should have only one job or responsibility."
+                },
+                {
+                    "id": 6,
+                    "question": "Explain the concept of 'Idempotency'.",
+                    "answer": "An operation is idempotent if it can be applied multiple times without changing the result beyond the initial application. This is crucial in distributed systems and APIs to handle retries safely."
+                },
+                {
+                    "id": 7,
+                    "question": "What is ACID in the context of databases?",
+                    "answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. It is a set of properties of database transactions intended to guarantee data validity despite errors, power failures, and other mishaps."
+                },
+                {
+                    "id": 8,
+                    "question": "What is BASE architecture?",
+                    "answer": "BASE stands for Basically Available, Soft state, Eventual consistency. It is an alternative to ACID used in NoSQL databases, prioritizing availability and partition tolerance over immediate consistency."
+                },
+                {
+                    "id": 9,
+                    "question": "What is the Law of Demeter?",
+                    "answer": "Also known as the principle of least knowledge, it states that a module should not know about the innards of the objects it manipulates. Specifically, an object should only talk to its immediate friends."
+                },
+                {
+                    "id": 10,
+                    "question": "Explain the Open/Closed Principle.",
+                    "answer": "Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. This allows behavior to be added without changing existing code."
+                }
+            ]
+        },
+        {
+            "id": "distributed_systems",
+            "title": "Distributed Systems",
+            "questions": [
+                {
+                    "id": 11,
+                    "question": "What is eventual consistency?",
+                    "answer": "Eventual consistency is a consistency model used in distributed computing to achieve high availability that informally guarantees that, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value."
+                },
+                {
+                    "id": 12,
+                    "question": "What is Sharding?",
+                    "answer": "Sharding is a database partitioning pattern where data is split horizontally across multiple databases or instances to spread the load and allow for storage beyond the capacity of a single server."
+                },
+                {
+                    "id": 13,
+                    "question": "What is Consistent Hashing?",
+                    "answer": "Consistent hashing is a distributed hashing scheme that operates independently of the number of servers or objects in a distributed hash table. It allows scaling nodes up and down with minimal remapping of keys."
+                },
+                {
+                    "id": 14,
+                    "question": "Explain the Split-Brain problem.",
+                    "answer": "Split-brain is a condition in a distributed system where the network between nodes is severed, causing two or more sets of nodes to believe they are the primary or authoritative set, potentially leading to data corruption or inconsistency."
+                },
+                {
+                    "id": 15,
+                    "question": "What is the Circuit Breaker pattern?",
+                    "answer": "The Circuit Breaker pattern is used to detect failures and encapsulate the logic of preventing a failure from constantly recurring during maintenance, temporary external system failure, or unexpected system difficulties."
+                },
+                {
+                    "id": 16,
+                    "question": "What is Service Discovery?",
+                    "answer": "Service discovery is the process of automatically detecting devices and services on a network. In microservices, it allows services to find the network location (IP and port) of other services dynamically."
+                },
+                {
+                    "id": 17,
+                    "question": "What is the Saga Pattern?",
+                    "answer": "The Saga pattern is a failure management pattern that helps establish consistency in distributed applications. It manages transactions that span multiple services by a sequence of local transactions, where each updates data within a single service."
+                },
+                {
+                    "id": 18,
+                    "question": "Explain Two-Phase Commit (2PC).",
+                    "answer": "2PC is a standardized protocol that ensures atomicity across distributed transactions. It involves a Prepare phase (voting) and a Commit phase. It is blocking and can reduce performance."
+                },
+                {
+                    "id": 19,
+                    "question": "What is Load Balancing?",
+                    "answer": "Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers, also known as a server farm or server pool."
+                },
+                {
+                    "id": 20,
+                    "question": "What is Leader Election?",
+                    "answer": "Leader election is the process of designating a single process as the organizer of some task distributed among several computers (nodes). It is crucial for coordination in distributed systems."
+                }
+            ]
+        },
+        {
+            "id": "microservices",
+            "title": "Microservices Architecture",
+            "questions": [
+                {
+                    "id": 21,
+                    "question": "What is a Microservice?",
+                    "answer": "A microservice is a small, autonomous service that performs a single business function. It can be deployed, upgraded, and scaled independently."
+                },
+                {
+                    "id": 22,
+                    "question": "What is the API Gateway pattern?",
+                    "answer": "An API Gateway allows a single entry point for all clients. It handles requests by routing them to the appropriate microservice, often performing cross-cutting concerns like authentication, SSL termination, and rate limiting."
+                },
+                {
+                    "id": 23,
+                    "question": "What is the Strangler Fig pattern?",
+                    "answer": "A migration pattern where a monolithic application is gradually replaced by microservices by creating new functionality as new services and slowly replacing old functionality until the monolith is strangled."
+                },
+                {
+                    "id": 24,
+                    "question": "What is the difference between Orchestration and Choreography in microservices?",
+                    "answer": "In Orchestration, a central controller (the conductor) tells the participants what to do. In Choreography, each service subscribes to events and reacts independently without a central coordinator."
+                },
+                {
+                    "id": 25,
+                    "question": "What are the disadvantages of Microservices?",
+                    "answer": "Complexity in deployment and testing, network latency, data consistency challenges, operational overhead (monitoring, logging), and the need for robust DevOps culture."
+                },
+                {
+                    "id": 26,
+                    "question": "What is Domain-Driven Design (DDD)?",
+                    "answer": "DDD is an approach to software development that centers the design on the core domain and domain logic. It is often used to define microservice boundaries (Bounded Contexts)."
+                },
+                {
+                    "id": 27,
+                    "question": "What is a Bounded Context?",
+                    "answer": "In DDD, a Bounded Context is a semantic boundary within which a particular domain model is defined and applicable. It is often the ideal scope for a microservice."
+                },
+                {
+                    "id": 28,
+                    "question": "What is the Sidecar Pattern?",
+                    "answer": "Deploys components of an application into a separate process or container to provide isolation and encapsulation. Common in Service Mesh implementations (e.g., Envoy proxy)."
+                },
+                {
+                    "id": 29,
+                    "question": "What is CQRS?",
+                    "answer": "Command Query Responsibility Segregation. It separates read and write operations for a data store. This allows independent scaling and optimization of read and write workloads."
+                },
+                {
+                    "id": 30,
+                    "question": "What is Event Sourcing?",
+                    "answer": "A pattern where state changes are stored as a sequence of events. The current state is derived by replaying the events. It provides a complete audit trail and enables point-in-time recovery."
+                }
+            ]
+        },
+        {
+            "id": "cloud_native",
+            "title": "Cloud Native & DevOps",
+            "questions": [
+                {
+                    "id": 31,
+                    "question": "What is Infrastructure as Code (IaC)?",
+                    "answer": "IaC is the managing and provisioning of computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools."
+                },
+                {
+                    "id": 32,
+                    "question": "What is a Container?",
+                    "answer": "A standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another (e.g., Docker)."
+                },
+                {
+                    "id": 33,
+                    "question": "What is Kubernetes?",
+                    "answer": "Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management."
+                },
+                {
+                    "id": 34,
+                    "question": "What is the Twelve-Factor App?",
+                    "answer": "A methodology for building software-as-a-service apps. It includes principles like codebase revision control, explicit dependencies, configuration in environment, backing services as attached resources, etc."
+                },
+                {
+                    "id": 35,
+                    "question": "What is Continuous Integration (CI)?",
+                    "answer": "The practice of merging all developers' working copies to a shared mainline several times a day to prevent integration problems."
+                },
+                {
+                    "id": 36,
+                    "question": "What is Continuous Deployment (CD)?",
+                    "answer": "A software engineering approach where software functionalities are delivered frequently through automated deployments."
+                },
+                {
+                    "id": 37,
+                    "question": "What is Serverless Computing?",
+                    "answer": "A cloud-computing execution model in which the cloud provider runs the server, and dynamically manages the allocation of machine resources. Pricing is based on the actual amount of resources consumed by an application."
+                },
+                {
+                    "id": 38,
+                    "question": "What is Blue-Green Deployment?",
+                    "answer": "A deployment technique that reduces downtime and risk by running two identical production environments called Blue and Green. Only one serves live traffic at a time."
+                },
+                {
+                    "id": 39,
+                    "question": "What is Canary Deployment?",
+                    "answer": "A pattern where a new version of software is rolled out to a small subset of users before being rolled out to the entire infrastructure."
+                },
+                {
+                    "id": 40,
+                    "question": "What is Observability?",
+                    "answer": "A measure of how well internal states of a system can be inferred from knowledge of its external outputs. It typically involves Logging, Metrics, and Tracing."
+                }
+            ]
+        },
+        {
+            "id": "data_architecture",
+            "title": "Data Architecture",
+            "questions": [
+                {
+                    "id": 41,
+                    "question": "Compare SQL vs NoSQL.",
+                    "answer": "SQL databases are relational, table-based, and vertically scalable. NoSQL databases are non-relational, document/key-value/graph-based, and horizontally scalable."
+                },
+                {
+                    "id": 42,
+                    "question": "What is Polyglot Persistence?",
+                    "answer": "The concept of using different data storage technologies to handle different data storage needs within a given application."
+                },
+                {
+                    "id": 43,
+                    "question": "What is a Data Lake?",
+                    "answer": "A centralized repository that allows you to store all your structured and unstructured data at any scale."
+                },
+                {
+                    "id": 44,
+                    "question": "What is ETL?",
+                    "answer": "Extract, Transform, Load. A data integration process that combines data from multiple sources into a single, consistent data store that is loaded into a data warehouse."
+                },
+                {
+                    "id": 45,
+                    "question": "What is CDC (Change Data Capture)?",
+                    "answer": "A set of software design patterns used to determine and track the data that has changed so that action can be taken using the changed data."
+                },
+                {
+                    "id": 46,
+                    "question": "What is Database Normalization?",
+                    "answer": "The process of organizing data in a database. This includes creating tables and establishing relationships between those tables according to rules designed both to protect the data and to make the database more flexible."
+                },
+                {
+                    "id": 47,
+                    "question": "What is a Graph Database?",
+                    "answer": "A database that uses graph structures for semantic queries with nodes, edges, and properties to represent and store data. Ideal for social networks, fraud detection, and recommendation engines."
+                },
+                {
+                    "id": 48,
+                    "question": "What is Indexing?",
+                    "answer": "A data structure technique used to quickly locate and access the data in a database table. Indexes are created using a few database columns."
+                },
+                {
+                    "id": 49,
+                    "question": "What is a Materialized View?",
+                    "answer": "A database object that contains the results of a query. It may be a local copy of data located remotely, or may be a subset of the rows and/or columns of a table or join result, effectively caching the result."
+                },
+                {
+                    "id": 50,
+                    "question": "What is Data Warehousing?",
+                    "answer": "A system used for reporting and data analysis, and is considered a core component of business intelligence. It stores current and historical data in one single place."
+                }
+            ]
+        },
+        {
+            "id": "security_architecture",
+            "title": "Security Architecture",
+            "questions": [
+                {
+                    "id": 51,
+                    "question": "What is OAuth 2.0?",
+                    "answer": "An authorization framework that enables applications to obtain limited access to user accounts on an HTTP service, such as Facebook or GitHub."
+                },
+                {
+                    "id": 52,
+                    "question": "What is OpenID Connect (OIDC)?",
+                    "answer": "A simple identity layer on top of the OAuth 2.0 protocol. It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server."
+                },
+                {
+                    "id": 53,
+                    "question": "What is Principle of Least Privilege?",
+                    "answer": "A security concept in which a user is given the minimum levels of access – or permissions – needed to perform his/her job functions."
+                },
+                {
+                    "id": 54,
+                    "question": "What is RBAC vs ABAC?",
+                    "answer": "RBAC (Role-Based Access Control) restricts access based on a user's role. ABAC (Attribute-Based Access Control) controls access based on attributes (user, resource, environment)."
+                },
+                {
+                    "id": 55,
+                    "question": "What is Zero Trust Security?",
+                    "answer": "A security model that requires strict identity verification for every person and device trying to access resources on a private network, regardless of whether they are sitting within or outside of the network perimeter."
+                },
+                {
+                    "id": 56,
+                    "question": "What is SQL Injection and how to prevent it?",
+                    "answer": "A code injection technique used to attack data-driven applications. Prevented by using prepared statements (parameterized queries) and ORMs."
+                },
+                {
+                    "id": 57,
+                    "question": "What is XSS (Cross-Site Scripting)?",
+                    "answer": "A vulnerability that enables attackers to inject client-side scripts into web pages viewed by other users. Prevented by sanitizing input and output, and using Content Security Policy (CSP)."
+                },
+                {
+                    "id": 58,
+                    "question": "What is CSRF (Cross-Site Request Forgery)?",
+                    "answer": "An attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. Prevented by using Anti-CSRF tokens."
+                },
+                {
+                    "id": 59,
+                    "question": "What is TLS/SSL?",
+                    "answer": "Transport Layer Security / Secure Sockets Layer. Cryptographic protocols designed to provide communications security over a computer network."
+                },
+                {
+                    "id": 60,
+                    "question": "What is PKI (Public Key Infrastructure)?",
+                    "answer": "A set of roles, policies, hardware, software, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption."
+                }
+            ]
+        },
+        {
+            "id": "integration_patterns",
+            "title": "Integration Patterns",
+            "questions": [
+                {
+                    "id": 61,
+                    "question": "What is an ESB (Enterprise Service Bus)?",
+                    "answer": "An architecture model used for designing and implementing communication between mutually interacting software applications in a service-oriented architecture (SOA)."
+                },
+                {
+                    "id": 62,
+                    "question": "What is Message Queuing?",
+                    "answer": "A form of asynchronous service-to-service communication used in serverless and microservices architectures. Messages are stored on the queue until they are processed and deleted."
+                },
+                {
+                    "id": 63,
+                    "question": "What is Publish-Subscribe Pattern?",
+                    "answer": "A messaging pattern where senders of messages (publishers) do not program the messages to be sent directly to specific receivers (subscribers), but instead characterize published messages into classes without knowledge of which subscribers, if any, there may be."
+                },
+                {
+                    "id": 64,
+                    "question": "What is an Anti-Corruption Layer?",
+                    "answer": "A layer that isolates a client's system from a foreign system by translating the data and behavior. It prevents the foreign system's design from influencing (corrupting) the client's design."
+                },
+                {
+                    "id": 65,
+                    "question": "What is Batch Processing vs Stream Processing?",
+                    "answer": "Batch processing involves processing a large volume of data all at once. Stream processing involves processing data in real-time as it arrives."
+                },
+                {
+                    "id": 66,
+                    "question": "What is gRPC?",
+                    "answer": "A high-performance, open-source universal RPC framework. It uses HTTP/2 for transport and Protocol Buffers as the interface description language."
+                },
+                {
+                    "id": 67,
+                    "question": "What is GraphQL?",
+                    "answer": "A query language for APIs and a runtime for fulfilling those queries with your existing data. It allows clients to request exactly the data they need."
+                },
+                {
+                    "id": 68,
+                    "question": "What is WebSockets?",
+                    "answer": "A computer communications protocol, providing full-duplex communication channels over a single TCP connection."
+                },
+                {
+                    "id": 69,
+                    "question": "What is Dead Letter Queue (DLQ)?",
+                    "answer": "A service implementation to store messages that meet one or more criteria, such as message could not be delivered, or message processing failed."
+                },
+                {
+                    "id": 70,
+                    "question": "What is Backpressure?",
+                    "answer": "A resistance or force opposing the desired flow of data through software. It builds up when the data is produced faster than it can be processed."
+                }
+            ]
+        },
+        {
+            "id": "performance_scalability",
+            "title": "Performance & Scalability",
+            "questions": [
+                {
+                    "id": 71,
+                    "question": "What is Latency vs Throughput?",
+                    "answer": "Latency is the time it takes for a single request to be handled. Throughput is the number of requests the system can handle per unit of time."
+                },
+                {
+                    "id": 72,
+                    "question": "What is Caching?",
+                    "answer": "The process of storing copies of files or data in a temporary storage location (cache) so that they can be accessed more quickly."
+                },
+                {
+                    "id": 73,
+                    "question": "What is a CDN (Content Delivery Network)?",
+                    "answer": "A geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and performance by distributing the service spatially relative to end-users."
+                },
+                {
+                    "id": 74,
+                    "question": "What is Database Replication?",
+                    "answer": "The frequent electronic copying of data from a database in one computer or server to a database in another so that all users share the same level of information."
+                },
+                {
+                    "id": 75,
+                    "question": "What is Connection Pooling?",
+                    "answer": "A cache of database connections maintained so that the connections can be reused when future requests to the database are required."
+                },
+                {
+                    "id": 76,
+                    "question": "What is Amdahl's Law?",
+                    "answer": "A formula used to find the maximum improvement possible by improving a particular part of a system. It is often used in parallel computing to predict the theoretical speedup."
+                },
+                {
+                    "id": 77,
+                    "question": "What is Auto-Scaling?",
+                    "answer": "A method used in cloud computing that dynamically adjusts the amount of computational resources in a server farm - typically measured by the number of active servers - automatically based on the load on the farm."
+                },
+                {
+                    "id": 78,
+                    "question": "What is Memoization?",
+                    "answer": "An optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again."
+                },
+                {
+                    "id": 79,
+                    "question": "What is Compression?",
+                    "answer": "Encoding information using fewer bits than the original representation to reduce resource usage, such as data storage space or transmission capacity (e.g., GZIP, Brotli)."
+                },
+                {
+                    "id": 80,
+                    "question": "What is the N+1 Query Problem?",
+                    "answer": "A common performance issue where code executes N additional SQL statements to fetch the same data that could have been retrieved when executing the primary SQL query."
+                }
+            ]
+        },
+        {
+            "id": "soft_skills_leadership",
+            "title": "Soft Skills & Leadership",
+            "questions": [
+                {
+                    "id": 81,
+                    "question": "What is the role of a Software Architect?",
+                    "answer": "To make high-level design choices and dictate technical standards, including software coding standards, tools, and platforms. They bridge the gap between business requirements and technical implementation."
+                },
+                {
+                    "id": 82,
+                    "question": "How do you handle technical debt?",
+                    "answer": "Acknowledge it, track it, and prioritize paying it down. Balance delivery of new features with refactoring tasks. Communicate the risk of debt to stakeholders."
+                },
+                {
+                    "id": 83,
+                    "question": "What is Conway's Law?",
+                    "answer": "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure."
+                },
+                {
+                    "id": 84,
+                    "question": "How do you make a Build vs Buy decision?",
+                    "answer": "Evaluate core competency (is this your secret sauce?), cost (TCO), time to market, maintenance burden, and customization needs."
+                },
+                {
+                    "id": 85,
+                    "question": "How do you handle disagreements with the development team?",
+                    "answer": "Listen actively, focus on data and trade-offs rather than opinions, encourage open dialogue, and be willing to compromise or let the team experiment if the risk is low."
+                },
+                {
+                    "id": 86,
+                    "question": "What is an Architectural Decision Record (ADR)?",
+                    "answer": "A document that captures an important architectural decision made along with its context and consequences."
+                },
+                {
+                    "id": 87,
+                    "question": "How do you mentor developers?",
+                    "answer": "Code reviews, pair programming, design sessions, sharing resources, and providing constructive feedback. Encourage them to think about the 'why', not just the 'how'."
+                },
+                {
+                    "id": 88,
+                    "question": "How do you stay current with technology?",
+                    "answer": "Reading blogs, attending conferences, building side projects, following thought leaders, and experimenting with new tools."
+                },
+                {
+                    "id": 89,
+                    "question": "What is the importance of documentation?",
+                    "answer": "It ensures knowledge transfer, reduces onboarding time, provides a source of truth, and helps maintain the system over the long term."
+                },
+                {
+                    "id": 90,
+                    "question": "Explain 'Trade-off analysis'.",
+                    "answer": "There is no 'perfect' architecture. An architect must evaluate pros and cons of different approaches (e.g., consistency vs availability) and choose the one that best fits the business constraints."
+                }
+            ]
+        },
+        {
+            "id": "architectural_patterns",
+            "title": "Architectural Patterns",
+            "questions": [
+                {
+                    "id": 91,
+                    "question": "What is Layered Architecture?",
+                    "answer": "Organizes the system into layers with distinct responsibilities (e.g., Presentation, Business, Data Access). Request flows downwards."
+                },
+                {
+                    "id": 92,
+                    "question": "What is Hexagonal Architecture (Ports and Adapters)?",
+                    "answer": "An architectural pattern used in software design. It aims at creating a loosely coupled application component that can be easily connected to their software environment by means of ports and adapters."
+                },
+                {
+                    "id": 93,
+                    "question": "What is Event-Driven Architecture?",
+                    "answer": "A software architecture paradigm promoting the production, detection, consumption of, and reaction to events."
+                },
+                {
+                    "id": 94,
+                    "question": "What is Microkernel Architecture (Plugin Pattern)?",
+                    "answer": "Consists of a core system (kernel) that provides minimal functionality and plugins that extend the functionality. Example: Eclipse IDE, VS Code."
+                },
+                {
+                    "id": 95,
+                    "question": "What is Space-Based Architecture?",
+                    "answer": "Designed to avoid functional collapse under high load by splitting apart both the processing and the storage between multiple servers. It relies on in-memory data grids."
+                },
+                {
+                    "id": 96,
+                    "question": "What is Serverless Architecture?",
+                    "answer": "Applications built using third-party services (BaaS) or custom code running in ephemeral containers (FaaS)."
+                },
+                {
+                    "id": 97,
+                    "question": "What is Service-Oriented Architecture (SOA)?",
+                    "answer": "An architectural style where services are provided to the other components by application components, through a communication protocol over a network."
+                },
+                {
+                    "id": 98,
+                    "question": "What is Clean Architecture?",
+                    "answer": "A philosophy promoted by Robert C. Martin (Uncle Bob) that emphasizes separation of concerns, dividing the software into layers where inner layers (domain) have no knowledge of outer layers (UI, DB)."
+                },
+                {
+                    "id": 99,
+                    "question": "What is MVC?",
+                    "answer": "Model-View-Controller. A design pattern for separating an application into three main logical components: the model (data), the view (user interface), and the controller (processes inputs)."
+                },
+                {
+                    "id": 100,
+                    "question": "What is Pipe-Filter pattern?",
+                    "answer": "A pattern where data processing elements are connected in a series, where the output of one element is the input of the next. Common in compilers and unix shell commands."
+                }
+            ]
+        }
+    ]
+}

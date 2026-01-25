@@ -182,8 +182,8 @@ export default function Results() {
             <div className="w-full md:w-10 lg:w-8">
                 <div className="flex justify-content-between align-items-center mb-4">
                     <div>
-                        <h1 className="text-3xl font-bold m-0 text-900">Exam Results</h1>
-                        <p className="text-600 m-0">Review your performance and AI feedback</p>
+                        <h1 className="text-3xl font-bold m-0 text-700">Exam Results</h1>
+                        <p className="text-500 m-0">Review your performance and AI feedback</p>
                     </div>
                     <div className="flex gap-2">
                          <Button 
@@ -193,9 +193,10 @@ export default function Results() {
                             outlined 
                             onClick={() => exam && gradeExam(exam, true)}
                             disabled={isGrading}
+                            className="font-bold"
                         />
                         <Link to="/dashboard">
-                            <Button label="Back to Dashboard" icon="pi pi-arrow-left" text className="font-bold"/>
+                            <Button label="Back to Dashboard" icon="pi pi-arrow-left" text className="font-bold text-purple-600 hover:bg-purple-50"/>
                         </Link>
                     </div>
                 </div>
@@ -203,12 +204,12 @@ export default function Results() {
                 {isGrading && (
                     <Card className="mb-4 shadow-2 border-round-xl">
                         <div className="text-center py-4">
-                            <i className="pi pi-spin pi-cog text-4xl text-primary mb-3"></i>
-                            <h3 className="mb-2 text-900">AI is Grading your exam...</h3>
+                            <i className="pi pi-spin pi-cog text-4xl text-purple-500 mb-3"></i>
+                            <h3 className="mb-2 text-700">AI is Grading your exam...</h3>
                             <div className="w-full max-w-20rem mx-auto">
-                                <ProgressBar value={gradingProgress} showValue={true}></ProgressBar>
+                                <ProgressBar value={gradingProgress} showValue={true} color="#8b5cf6"></ProgressBar>
                             </div>
-                            <p className="text-sm text-600 mt-3">This may take a minute depending on the number of questions.</p>
+                            <p className="text-sm text-500 mt-3">This may take a minute depending on the number of questions.</p>
                         </div>
                     </Card>
                 )}
@@ -220,23 +221,23 @@ export default function Results() {
                 {exam.status === 'graded' && (
                     <div className="grid mb-4">
                         <div className="col-12 md:col-4">
-                            <div className="surface-card shadow-2 p-4 border-round-xl text-center h-full flex flex-column justify-content-center">
-                                <span className="text-600 font-medium mb-2">Subject</span>
-                                <span className="text-2xl font-bold text-900 capitalize">{exam.subjectId}</span>
+                            <div className="bg-purple-50 shadow-1 p-4 border-round-xl text-center h-full flex flex-column justify-content-center border-none">
+                                <span className="text-purple-600 font-medium mb-2 uppercase text-xs tracking-wider">Subject</span>
+                                <span className="text-2xl font-bold text-purple-700 capitalize">{exam.subjectId}</span>
                             </div>
                         </div>
                         <div className="col-12 md:col-4">
-                             <div className="surface-card shadow-2 p-4 border-round-xl text-center h-full flex flex-column justify-content-center relative overflow-hidden">
-                                <span className="text-600 font-medium mb-2">Average Score</span>
+                             <div className="bg-blue-50 shadow-1 p-4 border-round-xl text-center h-full flex flex-column justify-content-center border-none relative overflow-hidden">
+                                <span className="text-blue-600 font-medium mb-2 uppercase text-xs tracking-wider">Average Score</span>
                                 <span className={`text-5xl font-bold text-${getScoreColor(exam.overallScore || 0)}`}>
                                     {exam.overallScore?.toFixed(0)}<span className="text-2xl">%</span>
                                 </span>
                             </div>
                         </div>
                         <div className="col-12 md:col-4">
-                             <div className="surface-card shadow-2 p-4 border-round-xl text-center h-full flex flex-column justify-content-center">
-                                <span className="text-600 font-medium mb-2">Total Questions</span>
-                                <span className="text-2xl font-bold text-900">{exam.totalQuestions}</span>
+                             <div className="bg-teal-50 shadow-1 p-4 border-round-xl text-center h-full flex flex-column justify-content-center border-none">
+                                <span className="text-teal-600 font-medium mb-2 uppercase text-xs tracking-wider">Total Questions</span>
+                                <span className="text-2xl font-bold text-teal-700">{exam.totalQuestions}</span>
                             </div>
                         </div>
                     </div>
@@ -244,14 +245,14 @@ export default function Results() {
 
                 <div className="flex flex-column gap-4">
                     {exam.answers.map((answer, index) => (
-                        <Card key={index} className="shadow-2 border-round-xl overflow-hidden">
+                        <Card key={index} className="shadow-2 border-round-xl overflow-hidden border-none">
                             <div className="flex flex-column md:flex-row justify-content-between align-items-start mb-4 gap-3">
                                 <div className="flex-1">
                                     <div className="flex align-items-center mb-2">
-                                        <span className="bg-primary text-primary-reverse font-bold border-round px-2 py-1 mr-2 text-sm">Q{index + 1}</span>
-                                        <span className="text-500 text-sm">Question</span>
+                                        <span className="bg-blue-50 text-blue-600 font-bold border-round px-2 py-1 mr-2 text-sm">Q{index + 1}</span>
+                                        <span className="text-500 text-sm uppercase font-semibold">Question</span>
                                     </div>
-                                    <h3 className="text-xl font-medium m-0 text-900 line-height-3">
+                                    <h3 className="text-xl font-medium m-0 text-700 line-height-3">
                                         {answer.questionText}
                                     </h3>
                                 </div>
@@ -263,15 +264,15 @@ export default function Results() {
                                             className="text-lg px-3 py-2 mb-1"
                                             rounded
                                         />
-                                        <div className="text-600 font-medium text-sm">Score: {answer.evaluation.score}/100</div>
+                                        <div className="text-500 font-medium text-sm">Score: {answer.evaluation.score}/100</div>
                                     </div>
                                 )}
                             </div>
 
                             <div className="mb-4">
                                 <div className="text-xs font-bold text-500 uppercase tracking-wide mb-2">Your Answer</div>
-                                <div className="p-3 surface-50 border-round-lg text-900 line-height-3" style={{ whiteSpace: 'pre-wrap' }}>
-                                    {answer.userAnswer || <span className="text-500 font-italic">(No answer provided)</span>}
+                                <div className="p-3 bg-gray-50 border-round-lg text-700 line-height-3" style={{ whiteSpace: 'pre-wrap' }}>
+                                    {answer.userAnswer || <span className="text-400 font-italic">(No answer provided)</span>}
                                 </div>
                             </div>
 

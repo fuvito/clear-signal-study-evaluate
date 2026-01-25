@@ -1,0 +1,155 @@
+{
+    "subject": "Angular",
+    "version": "1.0",
+    "totalQuestions": 100,
+    "categories": [
+        {
+            "id": "angular_fundamentals",
+            "title": "Angular Fundamentals",
+            "questions": [
+                { "id": 1, "question": "What is Angular?", "answer": "A TypeScript-based open-source web application framework led by the Angular Team at Google." },
+                { "id": 2, "question": "What is the difference between Angular and AngularJS?", "answer": "AngularJS (v1) is JS-based with controllers/scopes. Angular (v2+) is TS-based, component-oriented, and uses a hierarchy of components." },
+                { "id": 3, "question": "What are the key building blocks of an Angular application?", "answer": "Modules, Components, Templates, Metadata, Data Binding, Directives, Services, and Dependency Injection." },
+                { "id": 4, "question": "What is a Component in Angular?", "answer": "A class with the @Component decorator that controls a patch of screen called a view." },
+                { "id": 5, "question": "What is a Template?", "answer": "A form of HTML that tells Angular how to render the component." },
+                { "id": 6, "question": "What is a Module (NgModule)?", "answer": "A container for a cohesive block of code dedicated to an application domain, a workflow, or a closely related set of capabilities." },
+                { "id": 7, "question": "What is Data Binding?", "answer": "A mechanism for coordinating parts of a template with parts of a component." },
+                { "id": 8, "question": "What is Interpolation?", "answer": "One-way data binding from component to view using double curly braces {{ }}." },
+                { "id": 9, "question": "What is Property Binding?", "answer": "One-way data binding from component property to a target element property using square brackets [ ]." },
+                { "id": 10, "question": "What is Event Binding?", "answer": "One-way data binding from a target element event to a component method using parentheses ( )." },
+                { "id": 11, "question": "What is Two-Way Binding?", "answer": "Combines property and event binding using the banana-in-a-box syntax [(ngModel)]." },
+                { "id": 12, "question": "What is a Directive?", "answer": "A class with a @Directive decorator that adds behavior to elements in the DOM." },
+                { "id": 13, "question": "Difference between Component and Directive?", "answer": "A Component is a Directive with a template." },
+                { "id": 14, "question": "What are Structural Directives?", "answer": "Directives that change the DOM layout by adding and removing DOM elements (e.g., *ngIf, *ngFor)." },
+                { "id": 15, "question": "What are Attribute Directives?", "answer": "Directives that change the appearance or behavior of an element (e.g., ngClass, ngStyle)." },
+                { "id": 16, "question": "What is Dependency Injection (DI)?", "answer": "A design pattern in which a class requests dependencies from external sources rather than creating them." },
+                { "id": 17, "question": "What is a Service?", "answer": "A broad category encompassing any value, function, or feature that an app needs, typically a class with a narrow, well-defined purpose." },
+                { "id": 18, "question": "What is the lifecycle of a component?", "answer": "A sequence of steps (hooks) from creation to destruction (e.g., ngOnInit, ngOnDestroy)." },
+                { "id": 19, "question": "What is ngOnInit?", "answer": "A lifecycle hook called once after the first ngOnChanges." },
+                { "id": 20, "question": "What is ngOnDestroy?", "answer": "A lifecycle hook called immediately before Angular destroys the directive or component." }
+            ]
+        },
+        {
+            "id": "components_templates",
+            "title": "Components & Templates",
+            "questions": [
+                { "id": 21, "question": "What is ViewEncapsulation?", "answer": "Defines whether the template styles affect the whole application or just the component." },
+                { "id": 22, "question": "What are the modes of ViewEncapsulation?", "answer": "Emulated (default), None, and ShadowDom." },
+                { "id": 23, "question": "What is Content Projection?", "answer": "A way to insert, or project, the content you want to use inside another component using <ng-content>." },
+                { "id": 24, "question": "What is @Input?", "answer": "A decorator that marks a class field as an input property and supplies configuration metadata." },
+                { "id": 25, "question": "What is @Output?", "answer": "A decorator that marks a class field as an output property and supplies configuration metadata." },
+                { "id": 26, "question": "What is EventEmitter?", "answer": "Use in components with the @Output directive to emit custom events synchronously or asynchronously." },
+                { "id": 27, "question": "What is ViewChild?", "answer": "Property decorator that configures a view query." },
+                { "id": 28, "question": "What is ContentChild?", "answer": "Property decorator that configures a content query." },
+                { "id": 29, "question": "What is the HostListener decorator?", "answer": "Decorator that declares a DOM event to listen for, and provides a handler method to run when that event occurs." },
+                { "id": 30, "question": "What is the HostBinding decorator?", "answer": "Decorator that marks a DOM property as a host-binding property and supplies configuration metadata." },
+                { "id": 31, "question": "What is a Pipe?", "answer": "A class with the @Pipe decorator that transforms data for display in a template." },
+                { "id": 32, "question": "Difference between Pure and Impure Pipes?", "answer": "Pure pipes execute only when a pure change is detected. Impure pipes execute on every component change detection cycle." },
+                { "id": 33, "question": "What is the AsyncPipe?", "answer": "Unwraps a value from an asynchronous primitive (Promise/Observable)." },
+                { "id": 34, "question": "What is *ngIf?", "answer": "A structural directive that conditionally includes a template based on the value of an expression." },
+                { "id": 35, "question": "What is *ngFor?", "answer": "A structural directive that renders a template for each item in a collection." },
+                { "id": 36, "question": "What is trackBy in *ngFor?", "answer": "A function that returns a unique identifier for each item, improving performance by reducing DOM manipulations." },
+                { "id": 37, "question": "What is ng-template?", "answer": "An Angular element for rendering HTML. It is never displayed directly." },
+                { "id": 38, "question": "What is ng-container?", "answer": "A logical container that can be used to group nodes but is not rendered in the DOM tree." },
+                { "id": 39, "question": "How to pass data between sibling components?", "answer": "Using a shared service with Observables (BehaviorSubject) or via a parent component." },
+                { "id": 40, "question": "What is Change Detection Strategy?", "answer": "Defines how Angular checks for changes. Default (CheckAlways) vs OnPush." }
+            ]
+        },
+        {
+            "id": "dependency_injection_services",
+            "title": "Dependency Injection & Services",
+            "questions": [
+                { "id": 41, "question": "What is a Provider?", "answer": "An instruction to the DI system on how to obtain a value for a dependency." },
+                { "id": 42, "question": "What is 'providedIn: root'?", "answer": "Specifies that the service should be provided in the root injector (singleton)." },
+                { "id": 43, "question": "What are the different types of injectors?", "answer": "ModuleInjector and ElementInjector." },
+                { "id": 44, "question": "What is Hierarchical Dependency Injection?", "answer": "Angular's DI system is hierarchical, meaning injectors form a tree that mimics the component tree." },
+                { "id": 45, "question": "What is the @Injectable decorator?", "answer": "Marks a class as available to be provided and injected as a dependency." },
+                { "id": 46, "question": "What is the difference between @Injectable() and @Component() regarding DI?", "answer": "Components are also injectable, but @Injectable is specifically for services that might have their own dependencies." },
+                { "id": 47, "question": "How do you restrict DI resolution?", "answer": "Using resolution modifiers: @Optional(), @Self(), @SkipSelf(), @Host()." },
+                { "id": 48, "question": "What is the purpose of @Self()?", "answer": "Tells DI to look for the dependency only in the local injector." },
+                { "id": 49, "question": "What is the use of InjectionToken?", "answer": "Creates a token that can be used in a DI Provider, useful for non-class dependencies." },
+                { "id": 50, "question": "What is a Tree-shakable provider?", "answer": "A provider defined via providedIn: 'root' allowing unused services to be removed from the final bundle." }
+            ]
+        },
+        {
+            "id": "routing_forms",
+            "title": "Routing & Forms",
+            "questions": [
+                { "id": 51, "question": "What is the RouterModule?", "answer": "A separate NgModule that provides the necessary service providers and directives for navigating through application views." },
+                { "id": 52, "question": "What is <router-outlet>?", "answer": "A directive that acts as a placeholder where the router should display the view for that outlet." },
+                { "id": 53, "question": "What are Router Guards?", "answer": "Interfaces that can tell the router whether to allow navigation to or from a route." },
+                { "id": 54, "question": "List common Router Guards.", "answer": "CanActivate, CanActivateChild, CanDeactivate, Resolve, CanLoad (deprecated in v15+ for CanMatch)." },
+                { "id": 55, "question": "What is Lazy Loading?", "answer": "Loading NgModules or Standalone Components on demand instead of at startup." },
+                { "id": 56, "question": "How do you define a route with a parameter?", "answer": "{ path: 'hero/:id', component: HeroDetailComponent }" },
+                { "id": 57, "question": "Difference between Template-Driven and Reactive Forms?", "answer": "Template-driven relies on directives in the template; Reactive uses an explicit model in the component class." },
+                { "id": 58, "question": "What is FormControl?", "answer": "Tracks the value and validation status of an individual form control." },
+                { "id": 59, "question": "What is FormGroup?", "answer": "Tracks the same values and status for a collection of form controls." },
+                { "id": 60, "question": "What is FormBuilder?", "answer": "A service that provides syntactic sugar for creating instances of FormControl, FormGroup, or FormArray." }
+            ]
+        },
+        {
+            "id": "observables_rxjs",
+            "title": "Observables & RxJS",
+            "questions": [
+                { "id": 61, "question": "What is RxJS?", "answer": "A library for reactive programming using Observables that makes it easier to compose asynchronous or callback-based code." },
+                { "id": 62, "question": "What is an Observable?", "answer": "A stream of events or values over time." },
+                { "id": 63, "question": "Difference between Promise and Observable?", "answer": "Promise is single value, not cancellable. Observable is multiple values, cancellable, and lazy." },
+                { "id": 64, "question": "What is a Subject?", "answer": "A special type of Observable that allows values to be multicasted to many Observers." },
+                { "id": 65, "question": "What is BehaviorSubject?", "answer": "A Subject that requires an initial value and emits its current value to new subscribers." },
+                { "id": 66, "question": "What is Subscription?", "answer": "Represents the execution of an Observable, used to cancel the execution." },
+                { "id": 67, "question": "What is the map operator?", "answer": "Transforms each value emitted by the source Observable." },
+                { "id": 68, "question": "What is switchMap?", "answer": "Projects each source value to an Observable which is merged in the output Observable, emitting values only from the most recently projected Observable." },
+                { "id": 69, "question": "What is mergeMap (flatMap)?", "answer": "Projects each source value to an Observable which is merged in the output Observable." },
+                { "id": 70, "question": "How to handle HTTP errors in Angular?", "answer": "Using the catchError operator in the Observable pipe." }
+            ]
+        },
+        {
+            "id": "modern_angular",
+            "title": "Modern Angular (v14+)",
+            "questions": [
+                { "id": 71, "question": "What are Standalone Components?", "answer": "Components that don't need to be declared in an NgModule. They simplify the mental model of Angular." },
+                { "id": 72, "question": "How to create a standalone component?", "answer": "Set 'standalone: true' in the @Component metadata." },
+                { "id": 73, "question": "What is the inject() function?", "answer": "A function that can be used to inject dependencies in a constructor or field initializer, usable outside of classes in certain contexts." },
+                { "id": 74, "question": "What are Signals?", "answer": "A system that granularly tracks how and where your state is used throughout an application, allowing the framework to optimize rendering updates." },
+                { "id": 75, "question": "How do you define a Signal?", "answer": "count = signal(0);" },
+                { "id": 76, "question": "How do you update a Signal?", "answer": "count.set(5) or count.update(v => v + 1)." },
+                { "id": 77, "question": "What is a Computed Signal?", "answer": "A signal that derives its value from other signals. double = computed(() => this.count() * 2)." },
+                { "id": 78, "question": "What is an Effect?", "answer": "An operation that runs whenever one or more signal values change." },
+                { "id": 79, "question": "What is Hydration in Angular?", "answer": "The process that restores the server-side rendered application on the client. Destructive hydration was replaced by non-destructive hydration in v16." },
+                { "id": 80, "question": "What are Required Inputs?", "answer": "Allows inputs to be marked as required via @Input({ required: true })." }
+            ]
+        },
+        {
+            "id": "testing_optimization",
+            "title": "Testing & Optimization",
+            "questions": [
+                { "id": 81, "question": "What is TestBed?", "answer": "The primary API for writing unit tests for Angular applications and libraries." },
+                { "id": 82, "question": "What is Ahead-of-Time (AOT) compilation?", "answer": "Compiles your app at build time. Default in modern Angular." },
+                { "id": 83, "question": "What is Just-in-Time (JIT) compilation?", "answer": "Compiles your app in the browser at runtime." },
+                { "id": 84, "question": "What is Ivy?", "answer": "The code name for Angular's next-generation compilation and rendering pipeline (default since v9)." },
+                { "id": 85, "question": "What is the difference between shallow and deep testing?", "answer": "Shallow testing isolates the component (using NO_ERRORS_SCHEMA), while deep testing includes child components." },
+                { "id": 86, "question": "What is Protractor vs Cypress/Playwright?", "answer": "Protractor was the legacy E2E tool. Cypress and Playwright are modern alternatives." },
+                { "id": 87, "question": "How to optimize Angular app performance?", "answer": "Lazy loading, OnPush change detection, using trackBy, AOT, tree-shaking, optimizing bundles." },
+                { "id": 88, "question": "What is the purpose of NgZone?", "answer": "An injectable service for executing work inside or outside of the Angular zone." },
+                { "id": 89, "question": "What is runOutsideAngular?", "answer": "A method to run code without triggering Angular's change detection." },
+                { "id": 90, "question": "What is Server-Side Rendering (SSR)?", "answer": "Rendering pages on the server to improve initial load time and SEO (Angular Universal)." }
+            ]
+        },
+        {
+            "id": "advanced_topics",
+            "title": "Advanced Topics",
+            "questions": [
+                { "id": 91, "question": "What are Dynamic Components?", "answer": "Components created at runtime using ViewContainerRef." },
+                { "id": 92, "question": "What is Module Federation?", "answer": "Allows loading code from other separately compiled builds (Micro-frontends)." },
+                { "id": 93, "question": "What is an Interceptor?", "answer": "Inspects and transforms HTTP requests or responses between the app and the server." },
+                { "id": 94, "question": "What is Multi-Provider?", "answer": "Allows multiple providers to be associated with the same token (multi: true)." },
+                { "id": 95, "question": "What is APP_INITIALIZER?", "answer": "A DI token that you can use to provide one or more initialization functions." },
+                { "id": 96, "question": "What is ControlValueAccessor?", "answer": "An interface that acts as a bridge between the Angular forms API and a native element in the DOM." },
+                { "id": 97, "question": "What is CDK (Component Dev Kit)?", "answer": "A set of behavior primitives for building UI components (DragDrop, Overlay, etc.)." },
+                { "id": 98, "question": "How does Angular Change Detection work?", "answer": "It traverses the component tree checking for changes in bound properties. It uses zones to know when to check." },
+                { "id": 99, "question": "What is the difference between Constructor and ngOnInit?", "answer": "Constructor is for class initialization (dependency injection). ngOnInit is for Angular-specific initialization (input bindings available)." },
+                { "id": 100, "question": "What are Deferrable Views (@defer)?", "answer": "A declarative way to defer loading of template dependencies (introduced in v17)." }
+            ]
+        }
+    ]
+}

@@ -263,16 +263,16 @@ export default function ReportCard() {
 
             <div className="w-full md:w-10 lg:w-8">
                 <div className="mb-4">
-                    <h1 className="text-3xl font-bold m-0 text-900">Report Card</h1>
-                    <p className="text-600 m-0">Detailed breakdown of your practice coverage.</p>
+                    <h1 className="text-3xl font-bold m-0 text-700">Report Card</h1>
+                    <p className="text-500 m-0">Detailed breakdown of your practice coverage.</p>
                 </div>
 
                 <Card className="shadow-2 border-round-xl">
-                    <DataTable value={stats} stripedRows tableStyle={{ minWidth: '50rem' }}>
-                        <Column field="name" header="Subject" body={nameBodyTemplate} sortable className="font-bold"></Column>
-                        <Column field="totalQuestionsInBank" header="Total Questions" sortable className="text-center"></Column>
-                        <Column field="questionsAnsweredUnique" header="Answered (Unique)" sortable className="text-center font-semibold text-primary"></Column>
-                        <Column field="totalAttempts" header="Total Attempts" sortable className="text-center"></Column>
+                    <DataTable value={stats} stripedRows tableStyle={{ minWidth: '50rem' }} rowClassName={() => 'text-700'}>
+                        <Column field="name" header="Subject" body={nameBodyTemplate} sortable className="font-bold text-700"></Column>
+                        <Column field="totalQuestionsInBank" header="Total Questions" sortable className="text-center text-600"></Column>
+                        <Column field="questionsAnsweredUnique" header="Answered (Unique)" sortable className="text-center font-semibold text-purple-600"></Column>
+                        <Column field="totalAttempts" header="Total Attempts" sortable className="text-center text-600"></Column>
                         <Column field="coverage" header="Coverage" body={coverageBodyTemplate} sortable></Column>
                         <Column body={actionBodyTemplate} style={{ minWidth: '10rem' }}></Column>
                     </DataTable>

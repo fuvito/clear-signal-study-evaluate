@@ -128,18 +128,18 @@ export default function Login() {
     }
 
   return (
-    <div className="flex flex-column justify-content-center align-items-center min-h-screen surface-ground px-4">
+    <div className="flex flex-column justify-content-center align-items-center min-h-screen px-4">
       <div className="mb-4 text-center">
         <div className="text-4xl font-bold text-primary mb-2">Study Evaluate</div>
         <div className="text-600">Sign in to continue your progress</div>
       </div>
       
-      <Card className="w-full md:w-30rem shadow-2 border-round-xl">
+      <Card className="w-full md:w-30rem shadow-2 border-round-xl border-none">
         <form onSubmit={handleLogin} className="flex flex-column gap-3 p-2">
           {error && <Message severity="error" text={error} className="w-full" />}
 
           <div className="flex flex-column gap-2">
-            <label htmlFor="email" className="font-medium text-900">Email</label>
+            <label htmlFor="email" className="font-medium text-700">Email</label>
             <InputText
               id="email"
               value={email}
@@ -150,7 +150,7 @@ export default function Login() {
           </div>
 
           <div className="flex flex-column gap-2">
-            <label htmlFor="password" className="font-medium text-900">Password</label>
+            <label htmlFor="password" className="font-medium text-700">Password</label>
             <Password
               id="password"
               value={password}
@@ -171,11 +171,11 @@ export default function Login() {
             loading={loading}
             type="submit"
             disabled={!captchaToken}
-            className="w-full font-bold"
+            className="w-full font-bold bg-primary border-none hover:bg-indigo-400"
           />
 
           <Divider align="center" className="my-3">
-              <span className="text-600 text-sm font-medium bg-white px-2">OR</span>
+              <span className="text-500 text-sm font-medium bg-white px-2">OR</span>
           </Divider>
 
           <Button
@@ -187,7 +187,7 @@ export default function Login() {
             loading={loading}
             type="button"
             disabled={!captchaToken}
-            className="w-full"
+            className="w-full text-600 border-300 hover:bg-gray-50"
           />
         </form>
       </Card>
