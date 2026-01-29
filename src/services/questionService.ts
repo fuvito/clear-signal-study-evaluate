@@ -11,6 +11,7 @@ import systemDesignQuestions from '../data/questions/system_design_exam_100_ques
 import restQuestions from '../data/questions/rest_exam_50_questions.json'
 import architectQuestions from '../data/questions/software_architect_exam_100_questions.json'
 import angularQuestions from '../data/questions/angular_exam_100_questions.json'
+import nextjsQuestions from '../data/questions/nextjs_exam_100_questions.json'
 
 // Map of subject codes to their data
 const subjectData: Record<string, Subject> = {
@@ -23,7 +24,8 @@ const subjectData: Record<string, Subject> = {
     'system-design': systemDesignQuestions,
     'rest-api': restQuestions,
     'software-architect': architectQuestions,
-    'angular': angularQuestions
+    'angular': angularQuestions,
+    'nextjs': nextjsQuestions
 }
 
 export type QuestionStrategy = 'random' | 'not_answered' | 'least_answered';
@@ -41,6 +43,7 @@ export const questionService = {
         return [
             { name: 'React', code: 'react', totalQuestions: reactQuestions.totalQuestions },
             { name: 'Angular', code: 'angular', totalQuestions: angularQuestions.totalQuestions },
+            { name: 'Next.js', code: 'nextjs', totalQuestions: nextjsQuestions.totalQuestions },
             { name: 'Java', code: 'java', totalQuestions: javaQuestions.totalQuestions },
             { name: 'TypeScript', code: 'typescript', totalQuestions: tsQuestions.totalQuestions },
             { name: 'JavaScript', code: 'javascript', totalQuestions: jsQuestions.totalQuestions },
