@@ -132,7 +132,7 @@
       "questions": [
         { "id": 88, "question": "Why should focus styles not be removed globally?", "answer": "They’re essential for keyboard users; removing them harms accessibility." },
         { "id": 89, "question": "What is a common accessible approach to hiding text for screen readers only?", "answer": "Use a visually-hidden utility (e.g., position absolute, 1px size, clipped) so it remains readable by assistive tech." },
-        { "id": 90, "question": "What does aria-hidden=""true"" mean (conceptually)?", "answer": "It hides an element from the accessibility tree; the element remains visually present." },
+        { "id": 90, "question": "What does aria-hidden=\"true\" mean (conceptually)?", "answer": "It hides an element from the accessibility tree; the element remains visually present." },
         { "id": 91, "question": "What is a common pitfall when styling form controls?", "answer": "Breaking default focus/keyboard behaviors; also inconsistent rendering across browsers." },
         { "id": 92, "question": "Why is color contrast important?", "answer": "Low contrast reduces readability, especially for users with visual impairments; WCAG defines minimum ratios." }
       ]

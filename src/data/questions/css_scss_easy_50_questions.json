@@ -63,7 +63,7 @@
         { "id": 36, "question": "What does :nth-child(n) select?", "answer": "Elements based on their position among siblings (e.g., :nth-child(2) is the 2nd child)." },
         { "id": 37, "question": "What is a pseudo-element?", "answer": "A keyword like ::before or ::after that styles a part of an element." },
         { "id": 38, "question": "How do you create a pseudo-element content?", "answer": "Use ::before/::after with the content property (e.g., content: '' )." },
-        { "id": 39, "question": "What does attribute selector [type=\"text\"] do?", "answer": "Selects elements with type=""text"" (e.g., <input type=\"text\">)." },
+        { "id": 39, "question": "What does attribute selector [type=\"text\"] do?", "answer": "Selects elements with type=\"text\" (e.g., <input type=\"text\">)." },
         { "id": 40, "question": "What’s the difference between :first-child and :first-of-type?", "answer": ":first-child is the first child of its parent; :first-of-type is the first of that element type." }
       ]
     },
