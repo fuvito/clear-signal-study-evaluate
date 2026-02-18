@@ -14,6 +14,7 @@ import angularQuestions from '../data/questions/angular_exam_100_questions.json'
 import nextjsQuestions from '../data/questions/nextjs_exam_100_questions.json'
 import cssScssEasyQuestions from '../data/questions/css_scss_easy_50_questions.json'
 import cssRelatedQuestions from '../data/questions/css_and_related_100_questions.json'
+import springBootQuestions from '../data/questions/spring_boot_exam_100_questions.json'
 
 // Map of subject codes to their data
 const subjectData: Record<string, Subject> = {
@@ -22,6 +23,7 @@ const subjectData: Record<string, Subject> = {
     'typescript': tsQuestions,
     'javascript': jsQuestions,
     'spring-hibernate': springQuestions,
+    'spring-boot': springBootQuestions,
     'nodejs': nodeQuestions,
     'system-design': systemDesignQuestions,
     'rest-api': restQuestions,
@@ -54,6 +56,7 @@ export const questionService = {
             { name: 'TypeScript', code: 'typescript', totalQuestions: tsQuestions.totalQuestions },
             { name: 'JavaScript', code: 'javascript', totalQuestions: jsQuestions.totalQuestions },
             { name: 'Spring & Hibernate', code: 'spring-hibernate', totalQuestions: springQuestions.totalQuestions },
+            { name: 'Spring Boot', code: 'spring-boot', totalQuestions: springBootQuestions.totalQuestions },
             { name: 'Node.js', code: 'nodejs', totalQuestions: nodeQuestions.totalQuestions },
             { name: 'System Design', code: 'system-design', totalQuestions: systemDesignQuestions.totalQuestions },
             { name: 'REST API', code: 'rest-api', totalQuestions: restQuestions.totalQuestions },
@@ -66,7 +69,7 @@ export const questionService = {
         if (!subject) return [];
 
         // Flatten all questions from all categories with category name attached
-        const allQuestions = subject.categories.flatMap(cat => 
+        const allQuestions = subject.categories.flatMap(cat =>
             cat.questions.map(q => ({
                 ...q,
                 category: cat.title
@@ -96,13 +99,13 @@ export const questionService = {
             if (strategy === 'not_answered') {
                 // Filter for count === 0
                 const notAnswered = allQuestions.filter(q => (questionCounts.get(q.id) || 0) === 0);
-                
+
                 // If we have enough not answered, use them (shuffled)
                 if (notAnswered.length > 0) {
                      const shuffledNotAnswered = notAnswered.sort(() => 0.5 - Math.random());
                      // Fill with not answered first
                      selectedQuestions = [...shuffledNotAnswered];
-                     
+
                      // If we need more, fill with least answered
                      if (selectedQuestions.length < count) {
                          const remaining = allQuestions.filter(q => !selectedQuestions.includes(q));

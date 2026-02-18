@@ -1,0 +1,167 @@
+{
+  "subject": "Spring Boot",
+  "version": "1.0",
+  "totalQuestions": 100,
+  "categories": [
+    {
+      "id": "spring_boot_basics",
+      "title": "Spring Boot Basics",
+      "questions": [
+        { "id": 1, "question": "What is Spring Boot?", "answer": "An opinionated framework built on Spring that simplifies setup with auto-configuration, starters, and an embedded server." },
+        { "id": 2, "question": "What problem does Spring Boot solve?", "answer": "It reduces boilerplate configuration and setup, enabling rapid development of production-ready Spring applications." },
+        { "id": 3, "question": "What is a Spring Boot starter?", "answer": "A dependency bundle that brings a curated set of libraries and auto-configuration for a feature (e.g., spring-boot-starter-web)." },
+        { "id": 4, "question": "Which embedded servers does Spring Boot commonly use?", "answer": "Tomcat (default), Jetty, and Undertow." },
+        { "id": 5, "question": "What is the role of @SpringBootApplication?", "answer": "Convenience annotation that combines @Configuration, @EnableAutoConfiguration, and @ComponentScan." },
+        { "id": 6, "question": "How do you run a Spring Boot app?", "answer": "Via main method using SpringApplication.run(...) or using Maven/Gradle plugin (spring-boot:run)." },
+        { "id": 7, "question": "What is auto-configuration?", "answer": "Spring Boot configures beans based on classpath and properties, reducing manual configuration." },
+        { "id": 8, "question": "How do you disable a specific auto-configuration?", "answer": "Use @SpringBootApplication(exclude = ...) or spring.autoconfigure.exclude property." },
+        { "id": 9, "question": "Where are application properties defined?", "answer": "In application.properties or application.yml files located in classpath (e.g., src/main/resources)." },
+        { "id": 10, "question": "How to change server port?", "answer": "Set server.port=8081 (or another port) in application properties." }
+      ]
+    },
+    {
+      "id": "web_rest_mvc",
+      "title": "Web, REST, and MVC",
+      "questions": [
+        { "id": 11, "question": "What starter adds Spring MVC and embedded Tomcat?", "answer": "spring-boot-starter-web." },
+        { "id": 12, "question": "Difference between @Controller and @RestController?", "answer": "@RestController = @Controller + @ResponseBody on all methods (returns body directly)." },
+        { "id": 13, "question": "What does @RequestMapping do?", "answer": "Maps HTTP requests to handler methods/classes." },
+        { "id": 14, "question": "How to bind path variables?", "answer": "Use @PathVariable in method parameters." },
+        { "id": 15, "question": "How to bind request bodies (JSON) to objects?", "answer": "Use @RequestBody on a parameter, Jackson handles JSON binding." },
+        { "id": 16, "question": "How to return proper HTTP status codes?", "answer": "Return ResponseEntity<T> or use @ResponseStatus on methods/exceptions." },
+        { "id": 17, "question": "What is @Valid used for in controllers?", "answer": "Triggers Bean Validation (JSR 380) on request DTOs." },
+        { "id": 18, "question": "How to handle cross-origin requests?", "answer": "Use @CrossOrigin on controllers/methods or configure a CORS filter." },
+        { "id": 19, "question": "What is content negotiation?", "answer": "Mechanism to decide representation (JSON/XML) based on Accept headers, params, etc." },
+        { "id": 20, "question": "How to serve static content?", "answer": "Place files under /static, /public, /resources, or /META-INF/resources in classpath." }
+      ]
+    },
+    {
+      "id": "configuration_properties",
+      "title": "Configuration & Properties",
+      "questions": [
+        { "id": 21, "question": "How to map properties to a POJO?", "answer": "Use @ConfigurationProperties with a prefix and register the bean (e.g., via @EnableConfigurationProperties or @Component)." },
+        { "id": 22, "question": "Difference between @Value and @ConfigurationProperties?", "answer": "@Value injects individual values; @ConfigurationProperties binds groups, supports validation and relaxed binding." },
+        { "id": 23, "question": "What are profiles used for?", "answer": "To group config for environments (dev, test, prod) and activate selectively." },
+        { "id": 24, "question": "How to activate a profile?", "answer": "Set spring.profiles.active=dev (properties, env var, or command line)." },
+        { "id": 25, "question": "How to externalize configuration?", "answer": "Use environment variables, command-line args, config files outside jar, or Spring Cloud Config." },
+        { "id": 26, "question": "What is relaxed binding?", "answer": "Property names can be written in different forms (kebab-case, camelCase, underscores) and still bind." },
+        { "id": 27, "question": "How to validate @ConfigurationProperties?", "answer": "Annotate the POJO with @Validated and constraint annotations like @NotBlank, @Min." },
+        { "id": 28, "question": "Property precedence order?", "answer": "Command-line args > environment variables > application-{profile}.properties > application.properties, etc." },
+        { "id": 29, "question": "How to use random values?", "answer": "${random.*} placeholders, e.g., ${random.int} or ${random.uuid}." },
+        { "id": 30, "question": "How to encrypt secrets with Boot alone?", "answer": "Spring Boot doesn’t natively encrypt; use external vaults or Spring Cloud Config with encryption integrations." }
+      ]
+    },
+    {
+      "id": "data_jpa_jdbc",
+      "title": "Data Access: JPA, JDBC, Transactions",
+      "questions": [
+        { "id": 31, "question": "What starter enables Spring Data JPA?", "answer": "spring-boot-starter-data-jpa." },
+        { "id": 32, "question": "What is JpaRepository?", "answer": "A Spring Data repository providing CRUD/paging methods for JPA entities." },
+        { "id": 33, "question": "How are queries defined in Spring Data?", "answer": "Derived query methods, @Query with JPQL/native SQL, or Specifications/QueryDSL." },
+        { "id": 34, "question": "What is the default JPA provider?", "answer": "Hibernate." },
+        { "id": 35, "question": "How to configure an in-memory database quickly?", "answer": "Add H2 dependency; Boot auto-configures DataSource for dev/testing." },
+        { "id": 36, "question": "How to manage transactions?", "answer": "Use @Transactional on service methods or class; Boot auto-configures PlatformTransactionManager." },
+        { "id": 37, "question": "Difference between save and saveAll?", "answer": "save persists a single entity; saveAll persists a collection (batch semantics depend on JPA provider)." },
+        { "id": 38, "question": "Lazy vs eager fetching?", "answer": "Lazy loads associations on access; eager loads immediately. Prefer lazy to avoid N+1 and heavy loads." },
+        { "id": 39, "question": "How to run DB migrations?", "answer": "Use Flyway or Liquibase starters for versioned schema management." },
+        { "id": 40, "question": "How to use plain JDBC?", "answer": "Use spring-boot-starter-jdbc and JdbcTemplate for SQL operations." }
+      ]
+    },
+    {
+      "id": "error_handling_validation",
+      "title": "Error Handling & Validation",
+      "questions": [
+        { "id": 41, "question": "How to centralize REST error handling?", "answer": "Use @ControllerAdvice with @ExceptionHandler methods to return consistent responses." },
+        { "id": 42, "question": "What is MethodArgumentNotValidException?", "answer": "Thrown when Bean Validation on @RequestBody/@ModelAttribute fails; handle to return validation errors." },
+        { "id": 43, "question": "How to return 404 for missing records?", "answer": "Throw ResponseStatusException(HttpStatus.NOT_FOUND) or a custom exception annotated with @ResponseStatus." },
+        { "id": 44, "question": "How to customize Jackson serialization?", "answer": "Define ObjectMapper bean or use @Json* annotations on DTOs/entities." },
+        { "id": 45, "question": "How to log request/response details?", "answer": "Configure logging.level and use filters/interceptors or Actuator httptrace (removed in newer versions)." },
+        { "id": 46, "question": "How to return problem+json format?", "answer": "Use libraries like springdoc/zalando problem-spring-web or manually craft RFC7807 responses." },
+        { "id": 47, "question": "How to handle global @Valid on path/query params?", "answer": "Add @Validated at controller class level and use constraint annotations on parameters." },
+        { "id": 48, "question": "What is BindingResult used for?", "answer": "Captures validation errors when used right after a validated argument to avoid exceptions." },
+        { "id": 49, "question": "How to customize date/time format in JSON?", "answer": "Configure Jackson JavaTimeModule and use @JsonFormat or application properties." },
+        { "id": 50, "question": "How to internationalize error messages?", "answer": "Provide MessageSource with messages_{locale}.properties and use message codes in validation annotations." }
+      ]
+    },
+    {
+      "id": "security_auth",
+      "title": "Security & Authentication",
+      "questions": [
+        { "id": 51, "question": "What starter adds Spring Security?", "answer": "spring-boot-starter-security." },
+        { "id": 52, "question": "Default behavior when adding Spring Security?", "answer": "All endpoints require authentication; a generated default password appears in logs for in-memory user." },
+        { "id": 53, "question": "How to define security filter chain in Spring Boot 3?", "answer": "Expose a SecurityFilterChain @Bean and configure HttpSecurity DSL." },
+        { "id": 54, "question": "How to enable method security?", "answer": "Use @EnableMethodSecurity and annotations like @PreAuthorize." },
+        { "id": 55, "question": "How to implement JWT-based auth?", "answer": "Create filters to parse/validate JWT, configure stateless sessions, and set Authentication in SecurityContext." },
+        { "id": 56, "question": "How to secure actuator endpoints?", "answer": "Configure management.endpoints.web.exposure and Spring Security rules for /actuator/**." },
+        { "id": 57, "question": "Password storage best practice?", "answer": "Use a PasswordEncoder (e.g., BCryptPasswordEncoder) and never store plaintext passwords." },
+        { "id": 58, "question": "CORS with Spring Security?", "answer": "Enable and configure cors() in SecurityFilterChain and define a CorsConfigurationSource." },
+        { "id": 59, "question": "CSRF in stateless APIs?", "answer": "Typically disable CSRF for token-based stateless APIs; keep it for form logins." },
+        { "id": 60, "question": "How to test secured endpoints?", "answer": "Use @WithMockUser or SecurityMockMvcRequestPostProcessors.jwt() with MockMvc/WebTestClient." }
+      ]
+    },
+    {
+      "id": "actuator_monitoring",
+      "title": "Actuator & Monitoring",
+      "questions": [
+        { "id": 61, "question": "What does Spring Boot Actuator provide?", "answer": "Production-ready features like health checks, metrics, env info, and tracing endpoints." },
+        { "id": 62, "question": "How to enable Actuator?", "answer": "Add spring-boot-starter-actuator dependency." },
+        { "id": 63, "question": "How to expose specific endpoints?", "answer": "Set management.endpoints.web.exposure.include/exclude in properties." },
+        { "id": 64, "question": "How to customize health indicators?", "answer": "Provide HealthIndicator beans or use @Readiness/@Liveness in k8s probes (with appropriate actuator support)." },
+        { "id": 65, "question": "How to change Actuator base path?", "answer": "Set management.endpoints.web.base-path=/manage (default is /actuator)." },
+        { "id": 66, "question": "How to integrate Micrometer metrics?", "answer": "Micrometer is included with Actuator; add a registry (Prometheus, Datadog) to export metrics." },
+        { "id": 67, "question": "How to add custom metrics?", "answer": "Inject MeterRegistry and register counters/timers/gauges programmatically." },
+        { "id": 68, "question": "What is info endpoint used for?", "answer": "Exposes build and arbitrary app info; populate via application properties or InfoContributor." },
+        { "id": 69, "question": "How to mask sensitive actuator data?", "answer": "Use management.endpoint.* properties and configure sanitization of specific keys." },
+        { "id": 70, "question": "How to secure actuator endpoints?", "answer": "Apply Spring Security rules; expose only required endpoints to authenticated roles." }
+      ]
+    },
+    {
+      "id": "testing",
+      "title": "Testing",
+      "questions": [
+        { "id": 71, "question": "What starter helps with testing?", "answer": "spring-boot-starter-test includes JUnit, AssertJ, Mockito, Spring Test, etc." },
+        { "id": 72, "question": "How to test MVC controllers?", "answer": "Use @WebMvcTest with MockMvc to slice-test controller layer." },
+        { "id": 73, "question": "How to test data layer?", "answer": "Use @DataJpaTest for JPA repositories with in-memory DB by default." },
+        { "id": 74, "question": "How to run full integration tests?", "answer": "Use @SpringBootTest(classes=..., webEnvironment=RANDOM_PORT) with TestRestTemplate/WebTestClient." },
+        { "id": 75, "question": "How to mock beans in tests?", "answer": "Use @MockBean to replace a bean in the ApplicationContext for tests." },
+        { "id": 76, "question": "How to use Testcontainers?", "answer": "Add Testcontainers dependencies and start containers in tests, configure DataSource via properties." },
+        { "id": 77, "question": "How to load specific profiles in tests?", "answer": "Use @ActiveProfiles or set spring.profiles.active test property." },
+        { "id": 78, "question": "How to verify JSON responses?", "answer": "Use MockMvc ResultMatchers.jsonPath or WebTestClient JSON assertions." },
+        { "id": 79, "question": "What is @SpringBootTest vs @ExtendWith?", "answer": "@SpringBootTest loads the full context; @ExtendWith integrates JUnit extensions like SpringExtension." },
+        { "id": 80, "question": "How to test configuration properties?", "answer": "Use @EnableConfigurationProperties with PropertiesBinding and bind via TestPropertyValues or @TestConfiguration." }
+      ]
+    },
+    {
+      "id": "packaging_deployment",
+      "title": "Packaging & Deployment",
+      "questions": [
+        { "id": 81, "question": "How to build an executable jar?", "answer": "Use Spring Boot Maven/Gradle plugin to repackage with embedded server." },
+        { "id": 82, "question": "How to build a native image?", "answer": "Use Spring Boot 3 + GraalVM Native Image support via AOT and native build plugins." },
+      { "id": 83, "question": "How to configure memory for containerized Boot apps?", "answer": "Set JVM flags (Xms/Xmx), use container-aware JVM defaults, and tune GC; prefer distroless or slim base images." },
+        { "id": 84, "question": "How to override properties at runtime?", "answer": "Use env vars, command-line args, or externalized config files mounted in container/VM." },
+        { "id": 85, "question": "Fat jar vs. war packaging?", "answer": "Fat jar is self-contained with embedded server; war deploys to external servlet container." },
+        { "id": 86, "question": "How to enable graceful shutdown?", "answer": "Set server.shutdown=graceful and configure spring.lifecycle.timeout-per-shutdown-phase." },
+        { "id": 87, "question": "How to expose health for k8s probes?", "answer": "Use actuator /actuator/health/liveness and /readiness and configure security/exposure." },
+        { "id": 88, "question": "How to manage configuration per environment in k8s?", "answer": "Use ConfigMaps/Secrets mapped to properties and activate profiles via env vars." },
+        { "id": 89, "question": "How to reduce Docker image size?", "answer": "Use layered jars, slim JRE, and multi-stage builds; leverage Spring Boot layered jars in Dockerfiles." },
+        { "id": 90, "question": "What is the buildpacks approach?", "answer": "Use Paketo buildpacks with bootBuildImage to create OCI images without Dockerfiles." }
+      ]
+    },
+    {
+      "id": "observability_logging",
+      "title": "Observability: Logging, Metrics, Tracing",
+      "questions": [
+        { "id": 91, "question": "What logging framework is used by default?", "answer": "Spring Boot uses Logback with SLF4J by default." },
+        { "id": 92, "question": "How to change log level per package?", "answer": "Set logging.level.com.example=DEBUG in application properties." },
+        { "id": 93, "question": "How to structure logs for JSON?", "answer": "Use Logstash encoder or Logback appenders to output JSON format for aggregators." },
+        { "id": 94, "question": "How to enable distributed tracing?", "answer": "Use Micrometer Tracing/Brave/OpenTelemetry with an exporter (e.g., Zipkin, OTLP)." },
+        { "id": 95, "question": "How to capture request metrics?", "answer": "Actuator + Micrometer provides http.server.requests metrics by default." },
+        { "id": 96, "question": "How to mask sensitive values in logs?", "answer": "Configure logging patterns/filters and avoid logging credentials; sanitize Actuator env output." },
+        { "id": 97, "question": "What is Sleuth replacement in Boot 3?", "answer": "Spring Cloud Sleuth was replaced by Micrometer Tracing in Spring Boot 3 ecosystem." },
+        { "id": 98, "question": "How to propagate trace IDs?", "answer": "Use tracing libraries that instrument HTTP clients/servers and log MDC with traceId/spanId." },
+        { "id": 99, "question": "How to sample traces?", "answer": "Configure a Sampler bean or tracing properties to set sampling rate (e.g., probability)." },
+        { "id": 100, "question": "How to view metrics in Prometheus?", "answer": "Add micrometer-registry-prometheus and scrape the /actuator/prometheus endpoint." }
+      ]
+    }
+  ]
+}
